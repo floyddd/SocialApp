@@ -14,13 +14,17 @@
 		3513715B199A65BB00C31BE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513715A199A65BB00C31BE7 /* main.m */; };
 		3513715F199A65BB00C31BE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513715E199A65BB00C31BE7 /* AppDelegate.m */; };
 		35137162199A65BB00C31BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35137160199A65BB00C31BE7 /* Main.storyboard */; };
-		35137165199A65BB00C31BE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137164199A65BB00C31BE7 /* ViewController.m */; };
 		35137167199A65BB00C31BE7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35137166199A65BB00C31BE7 /* Images.xcassets */; };
 		3513716E199A65BB00C31BE7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513716D199A65BB00C31BE7 /* XCTest.framework */; };
 		3513716F199A65BB00C31BE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513714E199A65BB00C31BE7 /* Foundation.framework */; };
 		35137170199A65BB00C31BE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35137152199A65BB00C31BE7 /* UIKit.framework */; };
 		35137178199A65BB00C31BE7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35137176199A65BB00C31BE7 /* InfoPlist.strings */; };
 		3513717A199A65BB00C31BE7 /* SocialAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137179199A65BB00C31BE7 /* SocialAppTests.m */; };
+		35137187199A670300C31BE7 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137186199A670300C31BE7 /* FacebookViewController.m */; };
+		3513718A199A672700C31BE7 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137189199A672700C31BE7 /* TwitterViewController.m */; };
+		3513718D199A673800C31BE7 /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513718C199A673800C31BE7 /* InstagramViewController.m */; };
+		3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513718E199A846C00C31BE7 /* FacebookSDK.framework */; };
+		35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137191199A938F00C31BE7 /* NetworkActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +49,21 @@
 		3513715D199A65BB00C31BE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3513715E199A65BB00C31BE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		35137161199A65BB00C31BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		35137163199A65BB00C31BE7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		35137164199A65BB00C31BE7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		35137166199A65BB00C31BE7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3513716C199A65BB00C31BE7 /* SocialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3513716D199A65BB00C31BE7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		35137175199A65BB00C31BE7 /* SocialAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SocialAppTests-Info.plist"; sourceTree = "<group>"; };
 		35137177199A65BB00C31BE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		35137179199A65BB00C31BE7 /* SocialAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialAppTests.m; sourceTree = "<group>"; };
+		35137185199A670300C31BE7 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookViewController.h; path = Controller/FacebookViewController.h; sourceTree = "<group>"; };
+		35137186199A670300C31BE7 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = Controller/FacebookViewController.m; sourceTree = "<group>"; };
+		35137188199A672700C31BE7 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Controller/TwitterViewController.h; sourceTree = "<group>"; };
+		35137189199A672700C31BE7 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Controller/TwitterViewController.m; sourceTree = "<group>"; };
+		3513718B199A673800C31BE7 /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstagramViewController.h; path = Controller/InstagramViewController.h; sourceTree = "<group>"; };
+		3513718C199A673800C31BE7 /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstagramViewController.m; path = Controller/InstagramViewController.m; sourceTree = "<group>"; };
+		3513718E199A846C00C31BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		35137190199A938F00C31BE7 /* NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivity.h; sourceTree = "<group>"; };
+		35137191199A938F00C31BE7 /* NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35137151199A65BB00C31BE7 /* CoreGraphics.framework in Frameworks */,
+				3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */,
 				35137153199A65BB00C31BE7 /* UIKit.framework in Frameworks */,
 				3513714F199A65BB00C31BE7 /* Foundation.framework in Frameworks */,
 			);
@@ -101,6 +113,7 @@
 		3513714D199A65BB00C31BE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3513718E199A846C00C31BE7 /* FacebookSDK.framework */,
 				3513714E199A65BB00C31BE7 /* Foundation.framework */,
 				35137150199A65BB00C31BE7 /* CoreGraphics.framework */,
 				35137152199A65BB00C31BE7 /* UIKit.framework */,
@@ -112,11 +125,10 @@
 		35137154199A65BB00C31BE7 /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				35137184199A66C600C31BE7 /* Controller */,
 				3513715D199A65BB00C31BE7 /* AppDelegate.h */,
 				3513715E199A65BB00C31BE7 /* AppDelegate.m */,
 				35137160199A65BB00C31BE7 /* Main.storyboard */,
-				35137163199A65BB00C31BE7 /* ViewController.h */,
-				35137164199A65BB00C31BE7 /* ViewController.m */,
 				35137166199A65BB00C31BE7 /* Images.xcassets */,
 				35137155199A65BB00C31BE7 /* Supporting Files */,
 			);
@@ -150,6 +162,21 @@
 				35137176199A65BB00C31BE7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		35137184199A66C600C31BE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				35137190199A938F00C31BE7 /* NetworkActivity.h */,
+				35137191199A938F00C31BE7 /* NetworkActivity.m */,
+				35137185199A670300C31BE7 /* FacebookViewController.h */,
+				35137186199A670300C31BE7 /* FacebookViewController.m */,
+				35137188199A672700C31BE7 /* TwitterViewController.h */,
+				35137189199A672700C31BE7 /* TwitterViewController.m */,
+				3513718B199A673800C31BE7 /* InstagramViewController.h */,
+				3513718C199A673800C31BE7 /* InstagramViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35137165199A65BB00C31BE7 /* ViewController.m in Sources */,
+				3513718A199A672700C31BE7 /* TwitterViewController.m in Sources */,
+				35137187199A670300C31BE7 /* FacebookViewController.m in Sources */,
 				3513715F199A65BB00C31BE7 /* AppDelegate.m in Sources */,
+				35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */,
 				3513715B199A65BB00C31BE7 /* main.m in Sources */,
+				3513718D199A673800C31BE7 /* InstagramViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialApp/SocialApp-Prefix.pch";
 				INFOPLIST_FILE = "SocialApp/SocialApp-Info.plist";
@@ -389,6 +423,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialApp/SocialApp-Prefix.pch";
 				INFOPLIST_FILE = "SocialApp/SocialApp-Info.plist";
