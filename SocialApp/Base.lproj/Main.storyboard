@@ -134,7 +134,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPostPressed:" destination="lXk-T9-B1y" eventType="touchUpInside" id="SV1-ub-xXy"/>
+                                    <action selector="btnPostStatus:" destination="lXk-T9-B1y" eventType="touchUpInside" id="IoH-eX-n3X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xr-sO-vVs">
+                                <rect key="frame" x="137" y="247" width="76" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPostPhoto:" destination="lXk-T9-B1y" eventType="touchUpInside" id="caW-UI-Pmb"/>
                                 </connections>
                             </button>
                         </subviews>

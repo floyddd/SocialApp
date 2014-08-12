@@ -10,7 +10,9 @@
 #import <Social/Social.h>
 
 @interface FacebookViewController ()
-- (IBAction)btnPostPressed:(id)sender;
+- (IBAction)btnPostStatus:(id)sender;
+- (IBAction)btnPostPhoto:(id)sender;
+
 
 @end
 
@@ -65,23 +67,27 @@
 }
 */
 
-- (IBAction)btnPostPressed:(id)sender {
-    
-    
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
+- (IBAction)btnPostStatus:(id)sender {
 
 
-        [self presentViewController:controller animated:YES completion:Nil];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
-                                                        message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+    SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    
+    
+    
+    [self presentViewController:controller animated:YES completion:Nil];
+} else {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
+                                                    message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+}
+
+- (IBAction)btnPostPhoto:(id)sender {
+    
     
 
 }
