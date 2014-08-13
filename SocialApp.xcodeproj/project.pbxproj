@@ -27,6 +27,22 @@
 		35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137191199A938F00C31BE7 /* NetworkActivity.m */; };
 		35137195199B026000C31BE7 /* FacebookPostPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137194199B026000C31BE7 /* FacebookPostPhotoViewController.m */; };
 		35137198199B069300C31BE7 /* TwitterPostPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137197199B069300C31BE7 /* TwitterPostPhotoViewController.m */; };
+		351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */; };
+		351371F0199BCA0F00C31BE7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */; };
+		351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */; };
+		351371F2199BCA0F00C31BE7 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BF199BCA0F00C31BE7 /* AFJSONRequestOperation.m */; };
+		351371F3199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371C1199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m */; };
+		351371F4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371C4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m */; };
+		351371F5199BCA0F00C31BE7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371C6199BCA0F00C31BE7 /* AFURLConnectionOperation.m */; };
+		351371F6199BCA0F00C31BE7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371C8199BCA0F00C31BE7 /* AFXMLRequestOperation.m */; };
+		351371F7199BCA0F00C31BE7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371CA199BCA0F00C31BE7 /* UIImageView+AFNetworking.m */; };
+		351371F8199BCA0F00C31BE7 /* IAuthentificator in Resources */ = {isa = PBXBuildFile; fileRef = 351371CB199BCA0F00C31BE7 /* IAuthentificator */; };
+		351371F9199BCA0F00C31BE7 /* IAuthentificator.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371CD199BCA0F00C31BE7 /* IAuthentificator.m */; };
+		351371FA199BCA0F00C31BE7 /* IFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371CF199BCA0F00C31BE7 /* IFeedCell.m */; };
+		351371FB199BCA0F00C31BE7 /* IFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351371D0199BCA0F00C31BE7 /* IFeedCell.xib */; };
+		351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D2199BCA0F00C31BE7 /* IFeedController.m */; };
+		351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D4199BCA0F00C31BE7 /* IFeedItem.m */; };
+		351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D6199BCA0F00C31BE7 /* IFeedStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +86,37 @@
 		35137194199B026000C31BE7 /* FacebookPostPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookPostPhotoViewController.m; path = Controller/FacebookPostPhotoViewController.m; sourceTree = "<group>"; };
 		35137196199B069300C31BE7 /* TwitterPostPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterPostPhotoViewController.h; path = Controller/TwitterPostPhotoViewController.h; sourceTree = "<group>"; };
 		35137197199B069300C31BE7 /* TwitterPostPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterPostPhotoViewController.m; path = Controller/TwitterPostPhotoViewController.m; sourceTree = "<group>"; };
+		351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		351371BA199BCA0F00C31BE7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		351371BC199BCA0F00C31BE7 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		351371BE199BCA0F00C31BE7 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		351371BF199BCA0F00C31BE7 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		351371C0199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		351371C1199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		351371C2199BCA0F00C31BE7 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		351371C3199BCA0F00C31BE7 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		351371C4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		351371C5199BCA0F00C31BE7 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		351371C6199BCA0F00C31BE7 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		351371C7199BCA0F00C31BE7 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		351371C8199BCA0F00C31BE7 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		351371C9199BCA0F00C31BE7 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		351371CA199BCA0F00C31BE7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		351371CB199BCA0F00C31BE7 /* IAuthentificator */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IAuthentificator; sourceTree = "<group>"; };
+		351371CC199BCA0F00C31BE7 /* IAuthentificator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAuthentificator.h; sourceTree = "<group>"; };
+		351371CD199BCA0F00C31BE7 /* IAuthentificator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAuthentificator.m; sourceTree = "<group>"; };
+		351371CE199BCA0F00C31BE7 /* IFeedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedCell.h; sourceTree = "<group>"; };
+		351371CF199BCA0F00C31BE7 /* IFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedCell.m; sourceTree = "<group>"; };
+		351371D0199BCA0F00C31BE7 /* IFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFeedCell.xib; sourceTree = "<group>"; };
+		351371D1199BCA0F00C31BE7 /* IFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedController.h; sourceTree = "<group>"; };
+		351371D2199BCA0F00C31BE7 /* IFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedController.m; sourceTree = "<group>"; };
+		351371D3199BCA0F00C31BE7 /* IFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedItem.h; sourceTree = "<group>"; };
+		351371D4199BCA0F00C31BE7 /* IFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedItem.m; sourceTree = "<group>"; };
+		351371D5199BCA0F00C31BE7 /* IFeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedStore.h; sourceTree = "<group>"; };
+		351371D6199BCA0F00C31BE7 /* IFeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +178,7 @@
 		35137154199A65BB00C31BE7 /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				351371B6199BCA0F00C31BE7 /* InstagramDemo */,
 				35137184199A66C600C31BE7 /* Controller */,
 				3513715D199A65BB00C31BE7 /* AppDelegate.h */,
 				3513715E199A65BB00C31BE7 /* AppDelegate.m */,
@@ -187,6 +235,52 @@
 				3513718C199A673800C31BE7 /* InstagramViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		351371B6199BCA0F00C31BE7 /* InstagramDemo */ = {
+			isa = PBXGroup;
+			children = (
+				351371B7199BCA0F00C31BE7 /* AFNetworking */,
+				351371CB199BCA0F00C31BE7 /* IAuthentificator */,
+				351371CC199BCA0F00C31BE7 /* IAuthentificator.h */,
+				351371CD199BCA0F00C31BE7 /* IAuthentificator.m */,
+				351371CE199BCA0F00C31BE7 /* IFeedCell.h */,
+				351371CF199BCA0F00C31BE7 /* IFeedCell.m */,
+				351371D0199BCA0F00C31BE7 /* IFeedCell.xib */,
+				351371D1199BCA0F00C31BE7 /* IFeedController.h */,
+				351371D2199BCA0F00C31BE7 /* IFeedController.m */,
+				351371D3199BCA0F00C31BE7 /* IFeedItem.h */,
+				351371D4199BCA0F00C31BE7 /* IFeedItem.m */,
+				351371D5199BCA0F00C31BE7 /* IFeedStore.h */,
+				351371D6199BCA0F00C31BE7 /* IFeedStore.m */,
+			);
+			path = InstagramDemo;
+			sourceTree = "<group>";
+		};
+		351371B7199BCA0F00C31BE7 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */,
+				351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */,
+				351371BA199BCA0F00C31BE7 /* AFHTTPRequestOperation.h */,
+				351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */,
+				351371BC199BCA0F00C31BE7 /* AFImageRequestOperation.h */,
+				351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */,
+				351371BE199BCA0F00C31BE7 /* AFJSONRequestOperation.h */,
+				351371BF199BCA0F00C31BE7 /* AFJSONRequestOperation.m */,
+				351371C0199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.h */,
+				351371C1199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m */,
+				351371C2199BCA0F00C31BE7 /* AFNetworking.h */,
+				351371C3199BCA0F00C31BE7 /* AFPropertyListRequestOperation.h */,
+				351371C4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m */,
+				351371C5199BCA0F00C31BE7 /* AFURLConnectionOperation.h */,
+				351371C6199BCA0F00C31BE7 /* AFURLConnectionOperation.m */,
+				351371C7199BCA0F00C31BE7 /* AFXMLRequestOperation.h */,
+				351371C8199BCA0F00C31BE7 /* AFXMLRequestOperation.m */,
+				351371C9199BCA0F00C31BE7 /* UIImageView+AFNetworking.h */,
+				351371CA199BCA0F00C31BE7 /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351371FB199BCA0F00C31BE7 /* IFeedCell.xib in Resources */,
 				35137167199A65BB00C31BE7 /* Images.xcassets in Resources */,
 				35137159199A65BB00C31BE7 /* InfoPlist.strings in Resources */,
 				35137162199A65BB00C31BE7 /* Main.storyboard in Resources */,
+				351371F8199BCA0F00C31BE7 /* IAuthentificator in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +383,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				3513718A199A672700C31BE7 /* TwitterViewController.m in Sources */,
+				351371F7199BCA0F00C31BE7 /* UIImageView+AFNetworking.m in Sources */,
+				351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */,
+				351371F9199BCA0F00C31BE7 /* IAuthentificator.m in Sources */,
+				351371F0199BCA0F00C31BE7 /* AFHTTPRequestOperation.m in Sources */,
 				35137187199A670300C31BE7 /* FacebookViewController.m in Sources */,
+				351371F3199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				35137198199B069300C31BE7 /* TwitterPostPhotoViewController.m in Sources */,
+				351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */,
 				3513715F199A65BB00C31BE7 /* AppDelegate.m in Sources */,
+				351371FA199BCA0F00C31BE7 /* IFeedCell.m in Sources */,
+				351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */,
 				35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */,
+				351371F6199BCA0F00C31BE7 /* AFXMLRequestOperation.m in Sources */,
+				351371F5199BCA0F00C31BE7 /* AFURLConnectionOperation.m in Sources */,
+				351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */,
+				351371F2199BCA0F00C31BE7 /* AFJSONRequestOperation.m in Sources */,
+				351371F4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m in Sources */,
+				351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */,
 				3513715B199A65BB00C31BE7 /* main.m in Sources */,
 				3513718D199A673800C31BE7 /* InstagramViewController.m in Sources */,
 				35137195199B026000C31BE7 /* FacebookPostPhotoViewController.m in Sources */,
@@ -506,6 +616,7 @@
 				3513717F199A65BB00C31BE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35137180199A65BB00C31BE7 /* Build configuration list for PBXNativeTarget "SocialAppTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +625,7 @@
 				35137182199A65BC00C31BE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

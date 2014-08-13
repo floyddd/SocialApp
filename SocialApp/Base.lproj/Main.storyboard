@@ -53,12 +53,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415" y="182"/>
+            <point key="canvasLocation" x="412" y="89"/>
         </scene>
-        <!--Instagram View Controller-->
+        <!--Feed Controller-->
         <scene sceneID="jUm-ZM-6cz">
             <objects>
-                <viewController id="JBg-xs-Una" customClass="InstagramViewController" sceneMemberID="viewController">
+                <viewController id="JBg-xs-Una" customClass="IFeedController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tfm-PF-0g8"/>
                         <viewControllerLayoutGuide type="bottom" id="n8W-O3-Rgn"/>
@@ -66,13 +66,25 @@
                     <view key="view" contentMode="scaleToFill" id="nkP-ra-Cad">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-6n-hry">
+                                <rect key="frame" x="34" y="140" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="push" identifier="back" id="88V-Bc-LK1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bWH-iY-NgD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKU-Pc-Rpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="525"/>
+            <point key="canvasLocation" x="647" y="498"/>
         </scene>
         <!--Twitter Post Photo View Controller-->
         <scene sceneID="KQd-VV-U8k">
@@ -122,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ls-NL-Jps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="680" y="325"/>
+            <point key="canvasLocation" x="684" y="96"/>
         </scene>
         <!--Twitter View Controller - Twitter-->
         <scene sceneID="hjD-Fr-U2Z">
@@ -173,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5q-gT-LeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="302"/>
+            <point key="canvasLocation" x="114" y="434"/>
         </scene>
         <!--Facebook View Controller-->
         <scene sceneID="U6h-bL-OZv">
@@ -291,4 +303,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="88V-Bc-LK1"/>
+    </inferredMetricsTieBreakers>
 </document>

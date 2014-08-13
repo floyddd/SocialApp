@@ -1,0 +1,36 @@
+//
+//  IAuthentificator.h
+//  InstagramDemo
+//
+//  Created by Redkov Alexey on 30.04.13.
+//  Copyright (c) 2013 Redkov Alexey. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@protocol InstagramAuth
+-(void) didAuth:(NSMutableString*)token;
+@end
+
+
+@interface IAuthentificator : UIViewController <UIWebViewDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>
+
+{
+    NSMutableString *accessToken;
+    UIWebView *webView;
+    NSURLConnection *connection;
+    NSMutableData *mdata;
+   __weak id<InstagramAuth>iDelegate;
+    
+}
+@property (nonatomic,strong) NSMutableString *accessToken;
+@property (nonatomic,strong) UIWebView *webView;
+@property (nonatomic,strong) NSString *code;
+@property (nonatomic,strong) NSURLConnection *connection;
+@property (nonatomic,strong) NSMutableData *mdata;
+@property (nonatomic,weak) id<InstagramAuth>iDelegate;
+
+
+
+@end
+
