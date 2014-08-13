@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TwitterViewController : UIViewController
+@interface TwitterViewController : UIViewController <UIImagePickerControllerDelegate>
 
 @end

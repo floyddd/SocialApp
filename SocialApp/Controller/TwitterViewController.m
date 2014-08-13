@@ -127,7 +127,7 @@
                                              accountTypeWithAccountTypeIdentifier:
                                              ACAccountTypeIdentifierTwitter];
         
-        [[UIApplication sharedApplication] showNetworkActivityIndicator];
+       // [[UIApplication sharedApplication] showNetworkActivityIndicator];
         
         [self.accountStore
          requestAccessToAccountsWithType:twitterAccountType

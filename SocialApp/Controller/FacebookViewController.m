@@ -30,9 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
-    loginView.delegate = self;
-    [self.view addSubview:loginView];
+    //FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
+    //loginView.delegate = self;
+   // [self.view addSubview:loginView];
     // Do any additional setup after loading the view.
 }
 

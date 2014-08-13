@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FacebookViewController : UIViewController
+@interface FacebookViewController : UIViewController <UIImagePickerControllerDelegate>
 
 @end
