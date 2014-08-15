@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5q-gT-LeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="434"/>
+            <point key="canvasLocation" x="260" y="444"/>
         </scene>
         <!--Facebook View Controller-->
         <scene sceneID="U6h-bL-OZv">
