@@ -70,7 +70,18 @@
     accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"access_token"];
     [UIView commitAnimations];
  
-   
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
+    
+    
+    
+    left.tintColor=[UIColor blackColor];
+    self.navigationItem.leftBarButtonItem=left;
+    
+    
+    
+    [left setTarget: self.revealViewController];
+    [left setAction: @selector( revealToggle: )];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     
     
     CGRect tableFrame = [[UIScreen mainScreen]bounds];
@@ -79,7 +90,7 @@
     [[self feedTable]setDelegate:self];
   
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
-    [[self navigationItem]setTitle:@"Feed"];
+    [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
     [[self navigationItem]setRightBarButtonItem:item];

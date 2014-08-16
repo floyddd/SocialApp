@@ -33,6 +33,20 @@
     //FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
     //loginView.delegate = self;
    // [self.view addSubview:loginView];
+    
+    
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
+    
+    
+    
+    left.tintColor=[UIColor blackColor];
+    self.navigationItem.leftBarButtonItem=left;
+    
+    
+    
+    [left setTarget: self.revealViewController];
+    [left setAction: @selector( revealToggle: )];
+    [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     // Do any additional setup after loading the view.
 }
 

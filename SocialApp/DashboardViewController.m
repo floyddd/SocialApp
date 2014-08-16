@@ -35,6 +35,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
+    
+    
+    
+    left.tintColor=[UIColor blackColor];
+    self.navigationItem.leftBarButtonItem=left;
+    
+    
+    
+    [left setTarget: self.revealViewController];
+    [left setAction: @selector( revealToggle: )];
+
      [self.view addGestureRecognizer: self.revealViewController.panGestureRecognizer];
 }
 

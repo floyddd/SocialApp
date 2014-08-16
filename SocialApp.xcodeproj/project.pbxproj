@@ -43,7 +43,6 @@
 		351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D2199BCA0F00C31BE7 /* IFeedController.m */; };
 		351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D4199BCA0F00C31BE7 /* IFeedItem.m */; };
 		351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D6199BCA0F00C31BE7 /* IFeedStore.m */; };
-		3568CAD8199FC5760093BD2B /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAD1199FC5760093BD2B /* download.jpeg */; };
 		3568CAD9199FC5760093BD2B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CAD3199FC5760093BD2B /* MenuViewController.m */; };
 		3568CADA199FC5760093BD2B /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAD4199FC5760093BD2B /* reveal-icon.png */; };
 		3568CADB199FC5760093BD2B /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAD5199FC5760093BD2B /* reveal-icon@2x.png */; };
@@ -123,7 +122,6 @@
 		351371D4199BCA0F00C31BE7 /* IFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedItem.m; sourceTree = "<group>"; };
 		351371D5199BCA0F00C31BE7 /* IFeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedStore.h; sourceTree = "<group>"; };
 		351371D6199BCA0F00C31BE7 /* IFeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedStore.m; sourceTree = "<group>"; };
-		3568CAD1199FC5760093BD2B /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download.jpeg; sourceTree = "<group>"; };
 		3568CAD2199FC5760093BD2B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		3568CAD3199FC5760093BD2B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		3568CAD4199FC5760093BD2B /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 		3568CAD0199FC5760093BD2B /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3568CAD1199FC5760093BD2B /* download.jpeg */,
 				3568CAD2199FC5760093BD2B /* MenuViewController.h */,
 				3568CAD3199FC5760093BD2B /* MenuViewController.m */,
 				3568CAD4199FC5760093BD2B /* reveal-icon.png */,
@@ -398,7 +395,6 @@
 				3568CADB199FC5760093BD2B /* reveal-icon@2x.png in Resources */,
 				351371F8199BCA0F00C31BE7 /* IAuthentificator in Resources */,
 				3568CADA199FC5760093BD2B /* reveal-icon.png in Resources */,
-				3568CAD8199FC5760093BD2B /* download.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
