@@ -25,8 +25,6 @@
 		3513718D199A673800C31BE7 /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513718C199A673800C31BE7 /* InstagramViewController.m */; };
 		3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513718E199A846C00C31BE7 /* FacebookSDK.framework */; };
 		35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137191199A938F00C31BE7 /* NetworkActivity.m */; };
-		35137195199B026000C31BE7 /* FacebookPostPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137194199B026000C31BE7 /* FacebookPostPhotoViewController.m */; };
-		35137198199B069300C31BE7 /* TwitterPostPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137197199B069300C31BE7 /* TwitterPostPhotoViewController.m */; };
 		351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */; };
 		351371F0199BCA0F00C31BE7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */; };
 		351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */; };
@@ -87,10 +85,6 @@
 		3513718E199A846C00C31BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		35137190199A938F00C31BE7 /* NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivity.h; sourceTree = "<group>"; };
 		35137191199A938F00C31BE7 /* NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivity.m; sourceTree = "<group>"; };
-		35137193199B026000C31BE7 /* FacebookPostPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookPostPhotoViewController.h; path = Controller/FacebookPostPhotoViewController.h; sourceTree = "<group>"; };
-		35137194199B026000C31BE7 /* FacebookPostPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookPostPhotoViewController.m; path = Controller/FacebookPostPhotoViewController.m; sourceTree = "<group>"; };
-		35137196199B069300C31BE7 /* TwitterPostPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterPostPhotoViewController.h; path = Controller/TwitterPostPhotoViewController.h; sourceTree = "<group>"; };
-		35137197199B069300C31BE7 /* TwitterPostPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterPostPhotoViewController.m; path = Controller/TwitterPostPhotoViewController.m; sourceTree = "<group>"; };
 		351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		351371BA199BCA0F00C31BE7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -237,10 +231,6 @@
 			children = (
 				3568CADD199FC5980093BD2B /* DashboardViewController.h */,
 				3568CADE199FC5980093BD2B /* DashboardViewController.m */,
-				35137193199B026000C31BE7 /* FacebookPostPhotoViewController.h */,
-				35137194199B026000C31BE7 /* FacebookPostPhotoViewController.m */,
-				35137196199B069300C31BE7 /* TwitterPostPhotoViewController.h */,
-				35137197199B069300C31BE7 /* TwitterPostPhotoViewController.m */,
 				35137190199A938F00C31BE7 /* NetworkActivity.h */,
 				35137191199A938F00C31BE7 /* NetworkActivity.m */,
 				35137185199A670300C31BE7 /* FacebookViewController.h */,
@@ -421,7 +411,6 @@
 				3568CADF199FC5980093BD2B /* DashboardViewController.m in Sources */,
 				35137187199A670300C31BE7 /* FacebookViewController.m in Sources */,
 				351371F3199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				35137198199B069300C31BE7 /* TwitterPostPhotoViewController.m in Sources */,
 				351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */,
 				3513715F199A65BB00C31BE7 /* AppDelegate.m in Sources */,
 				351371FA199BCA0F00C31BE7 /* IFeedCell.m in Sources */,
@@ -436,7 +425,6 @@
 				351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */,
 				3513715B199A65BB00C31BE7 /* main.m in Sources */,
 				3513718D199A673800C31BE7 /* InstagramViewController.m in Sources */,
-				35137195199B026000C31BE7 /* FacebookPostPhotoViewController.m in Sources */,
 				3568CAD9199FC5760093BD2B /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 #import <Accounts/Accounts.h>
 @interface TwitterViewController ()
 - (IBAction)btnPostTweet:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 - (IBAction)btnPostPhoto:(id)sender;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
@@ -36,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        self.title=@"Twitter";
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
@@ -86,142 +88,64 @@
 
 }
 
-- (IBAction)btnPostPhoto:(id)sender {
-    self.imagePickerController = [[UIImagePickerController alloc] init];
-    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    self.imagePickerController.delegate = self;
-    [self presentViewController:self.imagePickerController animated:YES completion:nil];
-}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    // POST IMAGE
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+
+- (IBAction)btnPickPhoto:(id)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate=(id)self;
+    //imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", nil];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:imagePicker.sourceType];
     
-    [self.imagePickerController dismissViewControllerAnimated:FALSE completion:^{
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+}
+- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
+{
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        self.imageView.image=editedImage;
+        // Get the new image from the context
+       
+        // End the context
         
-        // 1. SLRequest
-        [self postImage:image withStatus:@""];
+    }
+    else         if ([mediaType isEqualToString:@"public.movie"]){
         
-        /*
-         // 2. SLComposeView
-         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-         {
-         SLComposeViewController *twController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-         
-         
-         [twController addImage:image];
-         
-         [self presentViewController:twController animated:YES completion:^{
-         NSLog(@"Tweet sheet has been presented.");
-         }];
-         
-         }
-         else {
-         NSLog(@"Twitter not available");
-         }
-         */
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                        message:@"Video file not supported."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+            
+            
+            
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+            
+            
+            [controller addImage:self.imageView.image];
+            [self presentViewController:controller animated:YES completion:Nil];}
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
+                                                            message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        // for example, presenting a vc or performing a segue
     }];
     
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
-// POST IMAGE FUNCTION
-- (void)postImage:(UIImage *)image withStatus:(NSString *)status
-{
-    if ([self userHasAccessToTwitter]) {
-        ACAccountType *twitterAccountType = [self.accountStore
-                                             accountTypeWithAccountTypeIdentifier:
-                                             ACAccountTypeIdentifierTwitter];
-        
-       // [[UIApplication sharedApplication] showNetworkActivityIndicator];
-        
-        [self.accountStore
-         requestAccessToAccountsWithType:twitterAccountType
-         options:NULL
-         completion:^(BOOL granted, NSError *error) {
-             if (granted) {
-                 NSArray *twitterAccounts =
-                 [self.accountStore accountsWithAccountType:twitterAccountType];
-                 
-                 NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
-                               @"/1.1/statuses/update_with_media.json"];
-                 NSDictionary *params = @{@"status" : status};
-                 SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter
-                                                         requestMethod:SLRequestMethodPOST
-                                                                   URL:url
-                                                            parameters:params];
-                 NSData *imageData = UIImageJPEGRepresentation(image, 1.f);
-                 [request addMultipartData:imageData
-                                  withName:@"media[]"
-                                      type:@"image/jpeg"
-                                  filename:@"image.jpg"];
-                 
-                 [request setAccount:[twitterAccounts lastObject]];
-                 
-                 NSLog(@"Start sending image!!");
-                 
-                 [request performRequestWithHandler:^(NSData *responseData,
-                                                      NSHTTPURLResponse *urlResponse,
-                                                      NSError *error) {
-                     
-                     [[UIApplication sharedApplication] hideNetworkActivityIndicator];
-                     
-                     if (responseData) {
-                         if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
-                             NSError *jsonError;
-                             NSDictionary *jsonData = [NSJSONSerialization
-                                                       JSONObjectWithData:responseData
-                                                       options:NSJSONReadingAllowFragments
-                                                       error:&jsonError];
-                             
-                             if (jsonData) {
-                                 NSLog(@"Tweet sent!!");
-                                 [self showStatus:@"Your tweet is sent !" withTitle:@"Success"];
-                             }
-                             else {
-                                 [self showStatus:@"Something is wrong" withTitle:@"Failed"];
-                                 NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
-                             }
-                         }
-                         else {
-                             [self showStatus:@"Something is wrong" withTitle:@"Failed"];
-                             NSLog(@"The response status code is %d", urlResponse.statusCode);
-                         }
-                     }
-                 }];
-             }
-             else {
-                 // Access was not granted, or an error occurred
-                 NSLog(@"%@", [error localizedDescription]);
-             }
-         }];
-    }
-    else {
-        NSLog(@"No twitter access");
-    }
-    
-}
-- (BOOL)userHasAccessToTwitter
-{
-    return [SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter];
-}
 
-- (void)showStatus:(NSString *)status withTitle:(NSString*) title
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
-                                                        message: status
-                                                       delegate: nil
-                                              cancelButtonTitle: @"OK"
-                                              otherButtonTitles: nil];
-        [alert show];
-    });
-    
-}
 @end

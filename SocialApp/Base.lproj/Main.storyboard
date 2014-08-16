@@ -32,56 +32,6 @@
             </objects>
             <point key="canvasLocation" x="-459" y="406"/>
         </scene>
-        <!--Twitter Post Photo View Controller-->
-        <scene sceneID="KQd-VV-U8k">
-            <objects>
-                <viewController id="mup-5G-xTv" customClass="TwitterPostPhotoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z8u-Ql-IAe"/>
-                        <viewControllerLayoutGuide type="bottom" id="BMH-uJ-sX5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HeH-ns-e8O">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJc-tp-c3h">
-                                <rect key="frame" x="137" y="180" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pick photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPickPhoto:" destination="mup-5G-xTv" eventType="touchUpInside" id="wqy-Qe-2f6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmR-F8-crs">
-                                <rect key="frame" x="129" y="249" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPostPhoto:" destination="mup-5G-xTv" eventType="touchUpInside" id="lmY-FW-t95"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mqb-F6-8gc">
-                                <rect key="frame" x="27" y="36" width="273" height="136"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Eby-Vv-wlx"/>
-                    <connections>
-                        <outlet property="btnPostPhotoOutlet" destination="KmR-F8-crs" id="fVW-0c-3VR"/>
-                        <outlet property="imageView" destination="mqb-F6-8gc" id="0xm-nk-JZn"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ls-NL-Jps" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-430" y="130"/>
-        </scene>
         <!--Twitter View Controller - Twitter-->
         <scene sceneID="hjD-Fr-U2Z">
             <objects>
@@ -95,9 +45,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-k3-iD4">
-                                <rect key="frame" x="138" y="230" width="74" height="30"/>
+                                <rect key="frame" x="20" y="64" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post tweet">
+                                <state key="normal" title="Tweet">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -105,33 +56,32 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5x-jX-2j8">
-                                <rect key="frame" x="131" y="283" width="75" height="30"/>
+                                <rect key="frame" x="217" y="64" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="post photo">
+                                <state key="normal" title="Tweet Photo">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPostPhoto:" destination="Hcj-24-hgo" eventType="touchUpInside" id="Fnd-4N-nDx"/>
+                                    <action selector="btnPickPhoto:" destination="Hcj-24-hgo" eventType="touchUpInside" id="m9l-cM-l3d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOE-vS-tCH">
-                                <rect key="frame" x="106" y="341" width="139" height="30"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O78-9E-SDS">
+                                <rect key="frame" x="212" y="88" width="3" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pick and post photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mup-5G-xTv" kind="push" id="aFm-P6-amO"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Twitter" id="85U-vh-wU8"/>
+                    <connections>
+                        <outlet property="imageView" destination="O78-9E-SDS" id="Cru-pQ-Rra"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5q-gT-LeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-611" y="388"/>
+            <point key="canvasLocation" x="-608" y="580"/>
         </scene>
         <!--Facebook View Controller-->
         <scene sceneID="U6h-bL-OZv">
@@ -146,9 +96,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgw-hd-zZi">
-                                <rect key="frame" x="144" y="175" width="106" height="30"/>
+                                <rect key="frame" x="0.0" y="62" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post status">
+                                <state key="normal" title="Status">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -156,74 +107,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xr-sO-vVs">
-                                <rect key="frame" x="137" y="247" width="77" height="30"/>
+                                <rect key="frame" x="250" y="62" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post Photo">
+                                <state key="normal" title="Photo">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnPostPhoto:" destination="lXk-T9-B1y" eventType="touchUpInside" id="caW-UI-Pmb"/>
-                                    <segue destination="dqa-kY-KkI" kind="push" id="WYU-UV-VI3"/>
+                                    <action selector="btnPostPhoto:" destination="lXk-T9-B1y" eventType="touchUpInside" id="hIp-yQ-VDw"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="i03-br-mby"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKa-iE-BXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="354" y="500"/>
-        </scene>
-        <!--Facebook Post Photo View Controller-->
-        <scene sceneID="GUL-7G-Gzp">
-            <objects>
-                <viewController id="dqa-kY-KkI" customClass="FacebookPostPhotoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Tss-tK-ysW"/>
-                        <viewControllerLayoutGuide type="bottom" id="yur-hQ-zqN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="NrW-7m-GbH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxR-6P-Ura">
-                                <rect key="frame" x="142" y="246" width="74" height="30"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZZ-KV-F9a">
+                                <rect key="frame" x="226" y="68" width="21" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pick photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPickPhoto:" destination="dqa-kY-KkI" eventType="touchUpInside" id="VXb-tO-Lut"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nH1-dC-0FF">
-                                <rect key="frame" x="142" y="307" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Post photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnPostPhoto:" destination="dqa-kY-KkI" eventType="touchUpInside" id="IIa-9Z-J2d"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-SN-0x7">
-                                <rect key="frame" x="14" y="59" width="294" height="160"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Lhs-dO-GPu"/>
+                    <navigationItem key="navigationItem" id="i03-br-mby"/>
                     <connections>
-                        <outlet property="btnPostPhotoOutlet" destination="nH1-dC-0FF" id="7C1-pf-TDT"/>
-                        <outlet property="imageView" destination="QhZ-SN-0x7" id="JIE-4z-GLN"/>
+                        <outlet property="imageView" destination="LZZ-KV-F9a" id="kcP-nz-Bgu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9OH-jL-8wR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKa-iE-BXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="-18"/>
+            <point key="canvasLocation" x="174" y="533"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B5H-7I-q3U">
@@ -251,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xw1-r4-701" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-423" y="500"/>
+            <point key="canvasLocation" x="-1028" y="401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fuG-GF-IZc">

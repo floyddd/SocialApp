@@ -12,6 +12,7 @@
 @interface FacebookViewController ()
 - (IBAction)btnPostStatus:(id)sender;
 - (IBAction)btnPostPhoto:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 
 @end
@@ -20,6 +21,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -30,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title=@"Facebook";
     //FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
     //loginView.delegate = self;
    // [self.view addSubview:loginView];
@@ -99,9 +102,63 @@ if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
     [alert show];
 }
 }
+- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
+{
+    
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        self.imageView.image=editedImage;
+        
+        // Get the new image from the context
+        // End the context
+        
+    }
+    else         if ([mediaType isEqualToString:@"public.movie"]){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                        message:@"Video file not supported."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+            
+        
+
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        
+            [controller addImage:self.imageView.image];
+            [self presentViewController:controller animated:YES completion:Nil];}
+             else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
+                                                                message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        
+        // for example, presenting a vc or performing a segue
+    }];
+    
+}
+
+
 
 - (IBAction)btnPostPhoto:(id)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.delegate=(id)self;
+    //imagePicker.mediaTypes = [NSArray arrayWithObjects:@"public.movie", nil];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes =[UIImagePickerController availableMediaTypesForSourceType:imagePicker.sourceType];
     
+    [self presentViewController:imagePicker animated:YES completion:nil];
     
 
 }
