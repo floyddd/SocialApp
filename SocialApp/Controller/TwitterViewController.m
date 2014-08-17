@@ -5,15 +5,21 @@
 //  Created by MokshaX on 8/12/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
+#import "TweetTableViewCell.h"
+#import "SWRevealViewController.h"
+#import "STTwitter.h"
 #import "NetworkActivity.h"
 #import <Social/Social.h>
 #import "TwitterViewController.h"
 #import <Accounts/Accounts.h>
-@interface TwitterViewController ()
+@interface TwitterViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 - (IBAction)btnPostTweet:(id)sender;
+@property (nonatomic, strong) STTwitterAPI *twitter;
+@property (strong, nonatomic) NSMutableArray * newsArray;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) NSArray *statuses;
 
-- (IBAction)btnPostPhoto:(id)sender;
 @property (nonatomic, strong) UIImagePickerController *imagePickerController;
 @property (nonatomic, strong) ACAccountStore *accountStore;
 @end
@@ -34,10 +40,64 @@
     return self;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+
+
+        static NSString *CellIdentifier = @"Cell";
+        TweetTableViewCell*cell = [self.tableview dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
+
+
+
+            
+
+                STTwitterAPI *twitter = [STTwitterAPI twitterAPIAppOnlyWithConsumerKey:@"PdLBPYUXlhQpt4AguShUIw" consumerSecret:@"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"];
+                if (indexPath.row==0) {
+                [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
+                    
+                    
+                    [twitter getUserTimelineWithScreenName:@"floyddd" successBlock:^(NSArray *statuses) {
+                        NSLog(@"array %@",statuses);
+                        
+                            NSDictionary *status = [statuses objectAtIndex:indexPath.row];
+                        cell.lblTweet.text= [status objectForKey:@"text"];
+                        cell.lblScreenName.text= [status objectForKey:@"name"];
+                        [self.tableview reloadData];
+                        NSLog(@"data %@",[status objectForKey:@"created_at"]);
+                    } errorBlock:^(NSError *error) {
+                        NSLog(@"-- error: %@", error);
+                    }];
+                    
+                } errorBlock:^(NSError *error) {
+                    NSLog(@"-- error %@", error);
+                    
+                }];
+
+                
+
+            }
+    return cell;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    
+    return 1;
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
         self.title=@"Twitter";
+
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     

@@ -4,7 +4,7 @@
 //
 //  Copyright (c) Nexitusor. All rights reserved.
 //
-
+#import "SWRevealViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "IFeedItem.h"
 #import "IFeedStore.h"
@@ -24,7 +24,7 @@
 -(void)loadHelloView
 
 {
-    [[self navigationController]setNavigationBarHidden:YES];
+   // [[self navigationController]setNavigationBarHidden:YES];
     CGRect helloFrame = [[UIScreen mainScreen]bounds];
     helloView = [[UIView alloc]initWithFrame:helloFrame];
 
@@ -47,13 +47,6 @@
     [[self view]addSubview:helloView];
     
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-               action:@selector(aMethod:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"Back" forState:UIControlStateNormal];
-    button.frame = CGRectMake(80.0, 110.0, 160.0, 40.0);
-    [self.view addSubview:button];
     
     
 }
@@ -93,12 +86,12 @@
     [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
-    [[self navigationItem]setRightBarButtonItem:item];
+    //[[self navigationItem]setRightBarButtonItem:item];
     
     [[self view]bringSubviewToFront:helloView];
     [feedTable setRowHeight:440];
     [feedTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    [[self navigationController]setNavigationBarHidden:NO];
+   // [[self navigationController]setNavigationBarHidden:NO];
     
     [self addPullToRefreshHeader];
     textPull = @"Pull down to refresh..."; //устанавливаем текст для "pull-to-refresh"

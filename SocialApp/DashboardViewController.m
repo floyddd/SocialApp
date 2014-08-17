@@ -28,9 +28,6 @@
 @implementation DashboardViewController
 
 
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
 
 - (void)viewDidLoad
 {

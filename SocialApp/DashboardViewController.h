@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 #import <UIKit/UIKit.h>
 #define iPhone4Or5oriPad ([[UIScreen mainScreen] bounds].size.height == 568 ? 5 : ([[UIScreen mainScreen] bounds].size.height == 480 ? 4 : 999))
-@interface DashboardViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate>
+@interface DashboardViewController : UIViewController <UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tblViewNews;
 @property (strong, nonatomic) IBOutlet  UIView *headerView;
 @property (strong, nonatomic) IBOutlet UIView *mainView;
