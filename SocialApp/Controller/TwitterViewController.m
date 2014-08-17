@@ -63,9 +63,9 @@
                         
                             NSDictionary *status = [statuses objectAtIndex:indexPath.row];
                         cell.lblTweet.text= [status objectForKey:@"text"];
-                        cell.lblScreenName.text= [status objectForKey:@"name"];
+                        cell.lblScreenName.text=[[[[status objectForKey:@"entities"] objectForKey:@"user_mentions"] valueForKey:@"name"] objectAtIndex:0];
                         [self.tableview reloadData];
-                        NSLog(@"data %@",[status objectForKey:@"created_at"]);
+                        NSLog(@"data %@",[[[[status objectForKey:@"entities"] objectForKey:@"user_mentions"] valueForKey:@"name"] objectAtIndex:0]);
                     } errorBlock:^(NSError *error) {
                         NSLog(@"-- error: %@", error);
                     }];
