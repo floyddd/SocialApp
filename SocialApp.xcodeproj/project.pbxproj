@@ -47,9 +47,9 @@
 		3568CADC199FC5760093BD2B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CAD7199FC5760093BD2B /* SWRevealViewController.m */; };
 		3568CADF199FC5980093BD2B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CADE199FC5980093BD2B /* DashboardViewController.m */; };
 		3568CAE8199FDBE50093BD2B /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAE4199FDBE50093BD2B /* twitter.png */; };
-		3568CAEA199FDBE50093BD2B /* facebook.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAE6199FDBE50093BD2B /* facebook.jpeg */; };
 		3568CAEC199FDD320093BD2B /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAEB199FDD320093BD2B /* instagram.png */; };
-		3568CAEE199FDDB20093BD2B /* home.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAED199FDDB20093BD2B /* home.jpeg */; };
+		3568CAF019A052770093BD2B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAEF19A052770093BD2B /* facebook.png */; };
+		3568CAF219A052F20093BD2B /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAF119A052F20093BD2B /* home.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,9 +129,9 @@
 		3568CADD199FC5980093BD2B /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		3568CADE199FC5980093BD2B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		3568CAE4199FDBE50093BD2B /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
-		3568CAE6199FDBE50093BD2B /* facebook.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebook.jpeg; sourceTree = "<group>"; };
 		3568CAEB199FDD320093BD2B /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
-		3568CAED199FDDB20093BD2B /* home.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpeg; sourceTree = "<group>"; };
+		3568CAEF19A052770093BD2B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		3568CAF119A052F20093BD2B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,10 +300,10 @@
 		3568CAD0199FC5760093BD2B /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3568CAED199FDDB20093BD2B /* home.jpeg */,
+				3568CAF119A052F20093BD2B /* home.png */,
+				3568CAEF19A052770093BD2B /* facebook.png */,
 				3568CAEB199FDD320093BD2B /* instagram.png */,
 				3568CAE4199FDBE50093BD2B /* twitter.png */,
-				3568CAE6199FDBE50093BD2B /* facebook.jpeg */,
 				3568CAD2199FC5760093BD2B /* MenuViewController.h */,
 				3568CAD3199FC5760093BD2B /* MenuViewController.m */,
 				3568CAD4199FC5760093BD2B /* reveal-icon.png */,
@@ -392,14 +392,14 @@
 			files = (
 				351371FB199BCA0F00C31BE7 /* IFeedCell.xib in Resources */,
 				3568CAEC199FDD320093BD2B /* instagram.png in Resources */,
+				3568CAF219A052F20093BD2B /* home.png in Resources */,
 				35137167199A65BB00C31BE7 /* Images.xcassets in Resources */,
+				3568CAF019A052770093BD2B /* facebook.png in Resources */,
 				35137159199A65BB00C31BE7 /* InfoPlist.strings in Resources */,
 				35137162199A65BB00C31BE7 /* Main.storyboard in Resources */,
 				3568CADB199FC5760093BD2B /* reveal-icon@2x.png in Resources */,
 				351371F8199BCA0F00C31BE7 /* IAuthentificator in Resources */,
 				3568CAE8199FDBE50093BD2B /* twitter.png in Resources */,
-				3568CAEA199FDBE50093BD2B /* facebook.jpeg in Resources */,
-				3568CAEE199FDDB20093BD2B /* home.jpeg in Resources */,
 				3568CADA199FC5760093BD2B /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
