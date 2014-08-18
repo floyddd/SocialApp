@@ -5,6 +5,7 @@
 //  Created by MokshaX on 8/12/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
+
 #import "NSDate+PrettyDate.h"
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
@@ -141,9 +142,7 @@
     NSString *text = [status valueForKey:@"text"];
     NSString *screenName = [status valueForKeyPath:@"user.screen_name"];
     NSString *dateStringg = [status valueForKey:@"created_at"];
-    cell.lblScreenName.text=[status valueForKeyPath:@"user.name"];
-    cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
-   
+    
    
     NSString *dateStr = dateStringg;
     
@@ -161,13 +160,31 @@
     [formatter setDateFormat:@"hh:mm a"];
     NSLog(@"Current Date: %@", [formatter stringFromDate:date]);
     
-   
+
     
+    //use this for system font
+
+
+
+
+
+    [cell.imgView setImageWithURL:[NSURL URLWithString:[[status valueForKey:@"user"] objectForKey:@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder-avatar"]];
+    
+
+
+
+
+
+
+            cell.lblTweet.text=text;
          cell.lblTime.text=[formatter stringFromDate:date];
-    
+    cell.lblScreenName.text=[status valueForKeyPath:@"user.name"];
+    cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
+
     cell.lblTimeInterval.text = [NSString stringWithFormat:@"%@,", [date prettyDate]];
-    cell.lblTweet.text=text;
+
 return cell;}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
