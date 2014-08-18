@@ -58,7 +58,12 @@
         
     } errorBlock:^(NSError *error) {
         
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:[error localizedDescription]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         NSLog(@"-- %@", [error localizedDescription]);
     }];
 }
@@ -88,7 +93,12 @@
                             
                             
                         } errorBlock:^(NSError *error) {
-                            
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                            message:[error localizedDescription]
+                                                                           delegate:self
+                                                                  cancelButtonTitle:@"OK"
+                                                                  otherButtonTitles:nil];
+                            [alert show];
                         }];
 }
 
@@ -175,7 +185,12 @@
         
         
     } errorBlock:^(NSError *error) {
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:[error localizedDescription]
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }];
     
 }
