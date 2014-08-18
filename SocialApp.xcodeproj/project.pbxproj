@@ -26,7 +26,6 @@
 		3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513718E199A846C00C31BE7 /* FacebookSDK.framework */; };
 		35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137191199A938F00C31BE7 /* NetworkActivity.m */; };
 		351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */; };
-		351371F0199BCA0F00C31BE7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */; };
 		351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */; };
 		351371F2199BCA0F00C31BE7 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BF199BCA0F00C31BE7 /* AFJSONRequestOperation.m */; };
 		351371F3199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371C1199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m */; };
@@ -41,6 +40,7 @@
 		351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D2199BCA0F00C31BE7 /* IFeedController.m */; };
 		351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D4199BCA0F00C31BE7 /* IFeedItem.m */; };
 		351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371D6199BCA0F00C31BE7 /* IFeedStore.m */; };
+		35342C1919A1A37E0017818D /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35342C1819A1A37E0017818D /* AFHTTPRequestOperation.m */; };
 		3568CAD9199FC5760093BD2B /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CAD3199FC5760093BD2B /* MenuViewController.m */; };
 		3568CADA199FC5760093BD2B /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAD4199FC5760093BD2B /* reveal-icon.png */; };
 		3568CADB199FC5760093BD2B /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3568CAD5199FC5760093BD2B /* reveal-icon@2x.png */; };
@@ -105,8 +105,6 @@
 		35137191199A938F00C31BE7 /* NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivity.m; sourceTree = "<group>"; };
 		351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
-		351371BA199BCA0F00C31BE7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		351371BC199BCA0F00C31BE7 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
 		351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
 		351371BE199BCA0F00C31BE7 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
@@ -134,6 +132,8 @@
 		351371D4199BCA0F00C31BE7 /* IFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedItem.m; sourceTree = "<group>"; };
 		351371D5199BCA0F00C31BE7 /* IFeedStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFeedStore.h; sourceTree = "<group>"; };
 		351371D6199BCA0F00C31BE7 /* IFeedStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFeedStore.m; sourceTree = "<group>"; };
+		35342C1719A1A37E0017818D /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		35342C1819A1A37E0017818D /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		3568CAD2199FC5760093BD2B /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		3568CAD3199FC5760093BD2B /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		3568CAD4199FC5760093BD2B /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
@@ -321,10 +321,10 @@
 		351371B7199BCA0F00C31BE7 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				35342C1719A1A37E0017818D /* AFHTTPRequestOperation.h */,
+				35342C1819A1A37E0017818D /* AFHTTPRequestOperation.m */,
 				351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */,
 				351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */,
-				351371BA199BCA0F00C31BE7 /* AFHTTPRequestOperation.h */,
-				351371BB199BCA0F00C31BE7 /* AFHTTPRequestOperation.m */,
 				351371BC199BCA0F00C31BE7 /* AFImageRequestOperation.h */,
 				351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */,
 				351371BE199BCA0F00C31BE7 /* AFJSONRequestOperation.h */,
@@ -516,9 +516,9 @@
 				3568CB4719A0FB480093BD2B /* STTwitterOS.m in Sources */,
 				351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */,
 				351371F9199BCA0F00C31BE7 /* IAuthentificator.m in Sources */,
-				351371F0199BCA0F00C31BE7 /* AFHTTPRequestOperation.m in Sources */,
 				3568CB4919A0FB480093BD2B /* BAVPlistNode.m in Sources */,
 				3568CB4119A0FB480093BD2B /* NSString+STTwitter.m in Sources */,
+				35342C1919A1A37E0017818D /* AFHTTPRequestOperation.m in Sources */,
 				3568CADF199FC5980093BD2B /* DashboardViewController.m in Sources */,
 				3568CB4819A0FB480093BD2B /* STTwitterOSRequest.m in Sources */,
 				35137187199A670300C31BE7 /* FacebookViewController.m in Sources */,

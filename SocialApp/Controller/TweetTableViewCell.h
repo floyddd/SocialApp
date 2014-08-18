@@ -11,5 +11,8 @@
 @interface TweetTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblTweet;
 @property (weak, nonatomic) IBOutlet UILabel *lblScreenName;
+@property (weak, nonatomic) IBOutlet UILabel *lblUsername;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblTime;
 
 @end

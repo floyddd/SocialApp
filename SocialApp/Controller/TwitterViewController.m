@@ -5,6 +5,8 @@
 //  Created by MokshaX on 8/12/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
+
+#import "AFNetworking.h"
 #import "TweetTableViewCell.h"
 #import "SWRevealViewController.h"
 #import "STTwitter.h"
@@ -16,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 - (IBAction)btnPostTweet:(id)sender;
 @property (nonatomic, strong) STTwitterAPI *twitter;
-@property (strong, nonatomic) NSMutableArray * newsArray;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) NSArray *statuses;
 
@@ -31,6 +33,68 @@
     self.accountStore = [[ACAccountStore alloc] init];
 }
 
+- (void)loginWithiOSAction {
+    
+    self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
+    
+      [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+        
+        
+        
+    } errorBlock:^(NSError *error) {
+        
+    }];
+    
+}
+- (void)getTimelineAction {
+    
+
+    
+    [_twitter getHomeTimelineSinceID:nil
+                               count:20
+                        successBlock:^(NSArray *statuses) {
+                            
+                            NSLog(@"-- statuses: %@", statuses);
+                            
+                            //                            self.getTimelineStatusLabel.text = [NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]];
+                            
+                            self.statuses = statuses;
+                            
+                            [self.tableview reloadData];
+                            
+                        } errorBlock:^(NSError *error) {
+                            
+                        }];
+}
+- (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
+    
+    [_twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
+        NSLog(@"-- screenName: %@", screenName);
+        
+      
+        
+        /*
+         At this point, the user can use the API and you can read his access tokens with:
+         
+         _twitter.oauthAccessToken;
+         _twitter.oauthAccessTokenSecret;
+         
+         You can store these tokens (in user default, or in keychain) so that the user doesn't need to authenticate again on next launches.
+         
+         Next time, just instanciate STTwitter with the class method:
+         
+         +[STTwitterAPI twitterAPIWithOAuthConsumerKey:consumerSecret:oauthToken:oauthTokenSecret:]
+         
+         Don't forget to call the -[STTwitter verifyCredentialsWithSuccessBlock:errorBlock:] after that.
+         */
+        
+    } errorBlock:^(NSError *error) {
+        
+        
+        NSLog(@"-- %@", [error localizedDescription]);
+    }];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,6 +104,27 @@
     return self;
 }
 
+- (IBAction)getTimelineAction:(id)sender {
+    
+    
+    
+    [_twitter getHomeTimelineSinceID:nil
+                               count:100
+                        successBlock:^(NSArray *statuses) {
+                            
+                            NSLog(@"-- statuses: %@", statuses);
+                            
+                            //                            self.getTimelineStatusLabel.text = [NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]];
+                            
+                            self.statuses = statuses;
+                            
+                            [self.tableview reloadData];
+                            
+                        } errorBlock:^(NSError *error) {
+                            
+                        }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -47,39 +132,28 @@
 
         static NSString *CellIdentifier = @"Cell";
         TweetTableViewCell*cell = [self.tableview dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
+    if(cell == nil) {
+        cell = [[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    }
 
-
-
-            
-
-                STTwitterAPI *twitter = [STTwitterAPI twitterAPIAppOnlyWithConsumerKey:@"PdLBPYUXlhQpt4AguShUIw" consumerSecret:@"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"];
-                if (indexPath.row==0) {
-                [twitter verifyCredentialsWithSuccessBlock:^(NSString *bearerToken) {
-                    
-                    
-                    [twitter getUserTimelineWithScreenName:@"floyddd" successBlock:^(NSArray *statuses) {
-                        NSLog(@"array %@",statuses);
-                        
-                            NSDictionary *status = [statuses objectAtIndex:indexPath.row];
-                        cell.lblTweet.text= [status objectForKey:@"text"];
-                        cell.lblScreenName.text=[[[[status objectForKey:@"entities"] objectForKey:@"user_mentions"] valueForKey:@"name"] objectAtIndex:0];
-                        [self.tableview reloadData];
-                        NSLog(@"data %@",[[[[status objectForKey:@"entities"] objectForKey:@"user_mentions"] valueForKey:@"name"] objectAtIndex:0]);
-                    } errorBlock:^(NSError *error) {
-                        NSLog(@"-- error: %@", error);
-                    }];
-                    
-                } errorBlock:^(NSError *error) {
-                    NSLog(@"-- error %@", error);
-                    
-                }];
-
-                
-
-            }
-    return cell;
-}
+    NSDictionary *status = [self.statuses objectAtIndex:indexPath.row];
+    
+    NSString *text = [status valueForKey:@"text"];
+    NSString *screenName = [status valueForKeyPath:@"user.screen_name"];
+    NSString *dateStringg = [status valueForKey:@"created_at"];
+    cell.lblScreenName.text=[status valueForKeyPath:@"user.name"];
+    cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
+   
+   
+    
+ 
+    
+ 
+ 
+    
+   // cell.lblTime.text = [NSString stringWithFormat:@"%@",date];
+    cell.lblTweet.text=text;
+return cell;}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -90,14 +164,35 @@
 {
     
     
-    return 1;
+    return [_statuses count];
     
 }
+- (IBAction)loginWithiOSAction:(id)sender {
+    
+    self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
+    
+    
+    [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+        
+      
+        
+    } errorBlock:^(NSError *error) {
+      
+    }];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    [self loginWithiOSAction];
+//    [self getTimelineAction];
         self.title=@"Twitter";
+    
 
+    [self loginWithiOSAction:self];
+    [self getTimelineAction:self];
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
@@ -205,6 +300,8 @@
     }];
     
 }
+
+
 
 
 
