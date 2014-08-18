@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TwitterViewController : UIViewController <UIImagePickerControllerDelegate>
-- (IBAction)ios:(id)sender;
-- (IBAction)get:(id)sender;
 
 
 @end

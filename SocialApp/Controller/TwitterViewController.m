@@ -34,45 +34,12 @@
     self.accountStore = [[ACAccountStore alloc] init];
 }
 
-- (void)loginWithiOSAction {
-    
-    self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
-    
-      [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
-        
-        
-        
-    } errorBlock:^(NSError *error) {
-        
-    }];
-    
-}
-- (void)getTimelineAction {
-    
-
-    
-    [_twitter getHomeTimelineSinceID:nil
-                               count:20
-                        successBlock:^(NSArray *statuses) {
-                            
-                            NSLog(@"-- statuses: %@", statuses);
-                            
-                            //                            self.getTimelineStatusLabel.text = [NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]];
-                            
-                            self.statuses = statuses;
-                            
-                            [self.tableview reloadData];
-                            
-                        } errorBlock:^(NSError *error) {
-                            
-                        }];
-}
 - (void)setOAuthToken:(NSString *)token oauthVerifier:(NSString *)verifier {
     
     [_twitter postAccessTokenRequestWithPIN:verifier successBlock:^(NSString *oauthToken, NSString *oauthTokenSecret, NSString *userID, NSString *screenName) {
         NSLog(@"-- screenName: %@", screenName);
         
-      
+        
         
         /*
          At this point, the user can use the API and you can read his access tokens with:
@@ -105,9 +72,8 @@
     return self;
 }
 
-- (IBAction)getTimelineAction:(id)sender {
-    
-    
+-(void)getTImeline{
+    NSLog(@"timeline action");
     
     [_twitter getHomeTimelineSinceID:nil
                                count:100
@@ -118,8 +84,8 @@
                             //                            self.getTimelineStatusLabel.text = [NSString stringWithFormat:@"%lu statuses", (unsigned long)[statuses count]];
                             
                             self.statuses = statuses;
-                            
                             [self.tableview reloadData];
+                            
                             
                         } errorBlock:^(NSError *error) {
                             
@@ -129,21 +95,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-
-
-        static NSString *CellIdentifier = @"Cell";
-        TweetTableViewCell*cell = [self.tableview dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    
+    static NSString *CellIdentifier = @"Cell";
+    TweetTableViewCell*cell = [self.tableview dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     if(cell == nil) {
         cell = [[TweetTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
     }
-
+    
     NSDictionary *status = [self.statuses objectAtIndex:indexPath.row];
     
     NSString *text = [status valueForKey:@"text"];
     NSString *screenName = [status valueForKeyPath:@"user.screen_name"];
     NSString *dateStringg = [status valueForKey:@"created_at"];
     
-   
+    
     NSString *dateStr = dateStringg;
     
     // Convert string to date object
@@ -152,38 +118,38 @@
     [dateFormat setLocale:usLocale];
     [dateFormat setTimeStyle:NSDateFormatterFullStyle];
     [dateFormat setFormatterBehavior:NSDateFormatterBehavior10_4];
-//    [dateFormat setDateFormat:@"EEE, d LLL yyyy HH:mm:ss Z"];
-   [dateFormat setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    //    [dateFormat setDateFormat:@"EEE, d LLL yyyy HH:mm:ss Z"];
+    [dateFormat setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
     NSDate *date = [dateFormat dateFromString:dateStr];
- 
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"hh:mm a"];
     NSLog(@"Current Date: %@", [formatter stringFromDate:date]);
     
-
+    
     
     //use this for system font
-
-
-
-
-
+    
+    
+    
+    
+    
     [cell.imgView setImageWithURL:[NSURL URLWithString:[[status valueForKey:@"user"] objectForKey:@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder-avatar"]];
     
-
-
-
-
-
-
-            cell.lblTweet.text=text;
-         cell.lblTime.text=[formatter stringFromDate:date];
+    
+    
+    
+    
+    
+    
+    cell.lblTweet.text=text;
+    cell.lblTime.text=[formatter stringFromDate:date];
     cell.lblScreenName.text=[status valueForKeyPath:@"user.name"];
     cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
-
+    
     cell.lblTimeInterval.text = [NSString stringWithFormat:@"%@,", [date prettyDate]];
-
-return cell;}
+    
+    return cell;}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -198,18 +164,25 @@ return cell;}
     return [_statuses count];
     
 }
-- (IBAction)loginWithiOSAction:(id)sender {
+-(void)login{
+    NSLog(@"ios action");
     
     self.twitter = [STTwitterAPI twitterAPIOSWithFirstAccount];
     
     
     [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
+        [self getTImeline];
         
-      
         
     } errorBlock:^(NSError *error) {
-      
+        
     }];
+    
+}
+
+- (IBAction)loginWithiOSAction:(id)sender {
+    
+    
     
 }
 
@@ -217,13 +190,11 @@ return cell;}
 {
     [super viewDidLoad];
     
-//    [self loginWithiOSAction];
-//    [self getTimelineAction];
-        self.title=@"Twitter";
+    self.title=@"Twitter";
+    [self login];
     
-
-    [self loginWithiOSAction:self];
-    [self getTimelineAction:self];
+    
+    
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
@@ -246,22 +217,22 @@ return cell;}
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)btnPostTweet:(id)sender {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-
+        
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Login Alert"
@@ -271,7 +242,7 @@ return cell;}
                                               otherButtonTitles:nil];
         [alert show];
     }
-
+    
 }
 
 
@@ -294,7 +265,7 @@ return cell;}
         UIImage *editedImage = (UIImage *)[info objectForKey:@"UIImagePickerControllerOriginalImage"];
         self.imageView.image=editedImage;
         // Get the new image from the context
-       
+        
         // End the context
         
     }

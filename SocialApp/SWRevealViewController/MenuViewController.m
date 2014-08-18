@@ -20,14 +20,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    if (indexPath.section==1) {
-        static NSString *Cel = @"extra";
         
-        UITableViewCell *ce = [tableView dequeueReusableCellWithIdentifier:Cel forIndexPath: indexPath];
-     
-        
-    }
-    
     
     
     switch ( indexPath.row )
