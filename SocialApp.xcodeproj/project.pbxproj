@@ -64,6 +64,10 @@
 		3568CB4B19A0FB480093BD2B /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CB3E19A0FB480093BD2B /* STHTTPRequest.m */; };
 		3568CB4E19A11A910093BD2B /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CB4D19A11A910093BD2B /* TweetTableViewCell.m */; };
 		357426EC19A26B4E0013390B /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */; };
+		357426F419A2A0050013390B /* FBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F319A2A0050013390B /* FBCell.m */; };
+		357426FB19A2A01D0013390B /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F619A2A01D0013390B /* NSDate+Additions.m */; };
+		357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F819A2A01D0013390B /* NSString+Additions.m */; };
+		357426FD19A2A01D0013390B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +180,14 @@
 		3568CB4D19A11A910093BD2B /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetTableViewCell.m; path = Controller/TweetTableViewCell.m; sourceTree = "<group>"; };
 		357426EA19A26B4E0013390B /* NSDate+PrettyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PrettyDate.h"; sourceTree = "<group>"; };
 		357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PrettyDate.m"; sourceTree = "<group>"; };
+		357426F219A2A0050013390B /* FBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBCell.h; sourceTree = "<group>"; };
+		357426F319A2A0050013390B /* FBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBCell.m; sourceTree = "<group>"; };
+		357426F519A2A01D0013390B /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
+		357426F619A2A01D0013390B /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Additions.m"; sourceTree = "<group>"; };
+		357426F719A2A01D0013390B /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		357426F819A2A01D0013390B /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		357426F919A2A01D0013390B /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +413,7 @@
 		357426F119A28F520013390B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				357426FE19A2A0230013390B /* Facebook */,
 				357426EA19A26B4E0013390B /* NSDate+PrettyDate.h */,
 				357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */,
 				3568CB2119A0FB480093BD2B /* STTwitter */,
@@ -410,6 +423,21 @@
 				35137191199A938F00C31BE7 /* NetworkActivity.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		357426FE19A2A0230013390B /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				357426F219A2A0050013390B /* FBCell.h */,
+				357426F319A2A0050013390B /* FBCell.m */,
+				357426F519A2A01D0013390B /* NSDate+Additions.h */,
+				357426F619A2A01D0013390B /* NSDate+Additions.m */,
+				357426F719A2A01D0013390B /* NSString+Additions.h */,
+				357426F819A2A01D0013390B /* NSString+Additions.m */,
+				357426F919A2A01D0013390B /* UIAlertView+Blocks.h */,
+				357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */,
+			);
+			name = Facebook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,6 +554,7 @@
 				357426EC19A26B4E0013390B /* NSDate+PrettyDate.m in Sources */,
 				351371F9199BCA0F00C31BE7 /* IAuthentificator.m in Sources */,
 				3568CB4919A0FB480093BD2B /* BAVPlistNode.m in Sources */,
+				357426FD19A2A01D0013390B /* UIAlertView+Blocks.m in Sources */,
 				3568CB4119A0FB480093BD2B /* NSString+STTwitter.m in Sources */,
 				35342C1919A1A37E0017818D /* AFHTTPRequestOperation.m in Sources */,
 				3568CADF199FC5980093BD2B /* DashboardViewController.m in Sources */,
@@ -534,12 +563,14 @@
 				351371F3199BCA0F00C31BE7 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				351371FE199BCA0F00C31BE7 /* IFeedStore.m in Sources */,
 				3513715F199A65BB00C31BE7 /* AppDelegate.m in Sources */,
+				357426F419A2A0050013390B /* FBCell.m in Sources */,
 				351371FA199BCA0F00C31BE7 /* IFeedCell.m in Sources */,
 				3568CB4319A0FB480093BD2B /* STTwitterAPI.m in Sources */,
 				3568CADC199FC5760093BD2B /* SWRevealViewController.m in Sources */,
 				3568CB4619A0FB480093BD2B /* STTwitterOAuth.m in Sources */,
 				351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */,
 				35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */,
+				357426FB19A2A01D0013390B /* NSDate+Additions.m in Sources */,
 				3568CB4E19A11A910093BD2B /* TweetTableViewCell.m in Sources */,
 				3568CB3F19A0FB480093BD2B /* NSDateFormatter+STTwitter.m in Sources */,
 				351371F6199BCA0F00C31BE7 /* AFXMLRequestOperation.m in Sources */,
@@ -548,6 +579,7 @@
 				351371F2199BCA0F00C31BE7 /* AFJSONRequestOperation.m in Sources */,
 				351371F4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m in Sources */,
 				351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */,
+				357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */,
 				3568CB4219A0FB480093BD2B /* STHTTPRequest+STTwitter.m in Sources */,
 				3568CB4B19A0FB480093BD2B /* STHTTPRequest.m in Sources */,
 				3513715B199A65BB00C31BE7 /* main.m in Sources */,
