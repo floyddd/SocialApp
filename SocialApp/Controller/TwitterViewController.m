@@ -5,7 +5,7 @@
 //  Created by MokshaX on 8/12/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
-
+#import "NSDate+PrettyDate.h"
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
 #import "SWRevealViewController.h"
@@ -145,13 +145,27 @@
     cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
    
    
+    NSString *dateStr = dateStringg;
     
+    // Convert string to date object
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormat setLocale:usLocale];
+    [dateFormat setTimeStyle:NSDateFormatterFullStyle];
+    [dateFormat setFormatterBehavior:NSDateFormatterBehavior10_4];
+//    [dateFormat setDateFormat:@"EEE, d LLL yyyy HH:mm:ss Z"];
+   [dateFormat setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    NSDate *date = [dateFormat dateFromString:dateStr];
  
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm a"];
+    NSLog(@"Current Date: %@", [formatter stringFromDate:date]);
     
- 
- 
+   
     
-   // cell.lblTime.text = [NSString stringWithFormat:@"%@",date];
+         cell.lblTime.text=[formatter stringFromDate:date];
+    
+    cell.lblTimeInterval.text = [NSString stringWithFormat:@"%@,", [date prettyDate]];
     cell.lblTweet.text=text;
 return cell;}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblScreenName;
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblTimeInterval;
 @property (weak, nonatomic) IBOutlet UILabel *lblTime;
 
 @end

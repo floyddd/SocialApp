@@ -64,6 +64,7 @@
 		3568CB4A19A0FB480093BD2B /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CB3C19A0FB480093BD2B /* JSONSyntaxHighlight.m */; };
 		3568CB4B19A0FB480093BD2B /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CB3E19A0FB480093BD2B /* STHTTPRequest.m */; };
 		3568CB4E19A11A910093BD2B /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568CB4D19A11A910093BD2B /* TweetTableViewCell.m */; };
+		357426EC19A26B4E0013390B /* NSDate+PrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,8 @@
 		3568CB3E19A0FB480093BD2B /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		3568CB4C19A11A910093BD2B /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TweetTableViewCell.h; path = Controller/TweetTableViewCell.h; sourceTree = "<group>"; };
 		3568CB4D19A11A910093BD2B /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TweetTableViewCell.m; path = Controller/TweetTableViewCell.m; sourceTree = "<group>"; };
+		357426EA19A26B4E0013390B /* NSDate+PrettyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PrettyDate.h"; sourceTree = "<group>"; };
+		357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PrettyDate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +240,8 @@
 		35137154199A65BB00C31BE7 /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				357426EA19A26B4E0013390B /* NSDate+PrettyDate.h */,
+				357426EB19A26B4E0013390B /* NSDate+PrettyDate.m */,
 				3568CB2119A0FB480093BD2B /* STTwitter */,
 				3568CAD0199FC5760093BD2B /* SWRevealViewController */,
 				351371B6199BCA0F00C31BE7 /* InstagramDemo */,
@@ -515,6 +520,7 @@
 				351371F7199BCA0F00C31BE7 /* UIImageView+AFNetworking.m in Sources */,
 				3568CB4719A0FB480093BD2B /* STTwitterOS.m in Sources */,
 				351371FC199BCA0F00C31BE7 /* IFeedController.m in Sources */,
+				357426EC19A26B4E0013390B /* NSDate+PrettyDate.m in Sources */,
 				351371F9199BCA0F00C31BE7 /* IAuthentificator.m in Sources */,
 				3568CB4919A0FB480093BD2B /* BAVPlistNode.m in Sources */,
 				3568CB4119A0FB480093BD2B /* NSString+STTwitter.m in Sources */,
