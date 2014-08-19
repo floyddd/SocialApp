@@ -189,17 +189,18 @@
                                 <rect key="frame" x="0.0" y="93" width="320" height="387"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="lXk-T9-B1y" id="4xd-wP-yW5"/>
-                                    <outlet property="delegate" destination="lXk-T9-B1y" id="caR-lW-YjD"/>
-                                </connections>
                             </tableView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HiD-2Q-DYz">
+                                <rect key="frame" x="222" y="69" width="14" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="i03-br-mby"/>
                     <connections>
-                        <outlet property="tableView" destination="qYW-su-AsE" id="N9K-Z0-MLg"/>
+                        <outlet property="imageView" destination="HiD-2Q-DYz" id="F8R-6R-f1i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKa-iE-BXq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,16 +24,16 @@
 -(void)loadHelloView
 
 {
-   // [[self navigationController]setNavigationBarHidden:YES];
-    CGRect helloFrame = [[UIScreen mainScreen]bounds];
-    helloView = [[UIView alloc]initWithFrame:helloFrame];
 
-    CGRect imageVIew =[[UIScreen mainScreen]bounds];
-    image = [[UIImageView alloc]initWithFrame:imageVIew];
-    [image setImage:[UIImage imageNamed:@"insta3.jpg"]];
-    [[self helloView]addSubview:image];
+    //CGRect helloFrame = [[UIScreen mainScreen]bounds];
+//    helloView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 499, 499)];
+//
+//    CGRect imageVIew =[[UIScreen mainScreen]bounds];
+//    image = [[UIImageView alloc]initWithFrame:imageVIew];
+//    [image setImage:[UIImage imageNamed:@"insta3.jpg"]];
+//    [[self helloView]addSubview:image];
 
-    CGRect ma = CGRectMake(110, 300, 100, 30);
+    CGRect ma = CGRectMake(10, 300, 100, 30);
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     [but setFrame:ma];
     [but setTitle:@"Login" forState:UIControlStateNormal];
@@ -59,6 +59,10 @@
 
 {
     [super viewDidLoad];
+//    if (!accessToken) {
+                [self openLoginView:self];
+//    }
+
     
     accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"access_token"];
     [UIView commitAnimations];
@@ -86,7 +90,7 @@
     [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
-    //[[self navigationItem]setRightBarButtonItem:item];
+    [[self navigationItem]setRightBarButtonItem:item];
     
     [[self view]bringSubviewToFront:helloView];
     [feedTable setRowHeight:440];
@@ -165,7 +169,7 @@
                 refreshLabel.text = self.textRelease;
                 [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
             } else {
-               
+                NSLog(@"abc");
                 refreshLabel.text = self.textPull;
                 [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
             }
@@ -233,7 +237,8 @@
 -(void)logout:(id)sender
 
 {
-    
+    [self.feedTable reloadData];
+    self.feedTable.dataSource==nil;
     NSURL *url = [[NSURL alloc]initWithString:@"http://instagram.com/accounts/logout/"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
 
@@ -309,7 +314,7 @@
     ShowNetworkActivityIndicator();
     IAuthentificator *iAuth = [[IAuthentificator alloc]init];
     [iAuth setIDelegate:self];
-    [iAuth setModalPresentationStyle:UIModalPresentationFormSheet];
+   
     [self presentViewController:iAuth animated:YES completion:^{}];
     
 }

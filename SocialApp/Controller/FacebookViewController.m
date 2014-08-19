@@ -47,7 +47,8 @@ BOOL hasFacebook = NO;
 			[UIAlertView showAlertViewWithTitle:@"Connection Error" message:@"There was an error getting the news feed. Please try again." cancelButtonTitle:@"OK" otherButtonTitles:nil onDismiss:nil onCancel:nil];
 		} else {
 			self.posts =result;
-            NSLog(@"%@",result);
+            //    NSLog(@"%@",[[[result objectForKey:@"data"] objectAtIndex:0] objectForKey:@"status"]);
+            NSLog(@"data %@",self.posts);
             
 			[self.tableView reloadData];
 		}
@@ -57,7 +58,9 @@ BOOL hasFacebook = NO;
 - (void)loginFacebook {
 	[FBSession openActiveSessionWithReadPermissions:@[
                                                       @"basic_info",
-                                                      @"read_stream"
+                                                      @"public_profile",
+                                                      @"read_stream",
+                                                      @"user_status",
                                                       ]
 	                                   allowLoginUI:YES
 	                              completionHandler:^(FBSession *session,
@@ -238,6 +241,7 @@ if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 	}
     
 	FBCell *fbCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
 	fbCell.wallPost = wallPost;
     
 	return fbCell;

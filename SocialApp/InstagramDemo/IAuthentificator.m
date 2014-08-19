@@ -25,6 +25,7 @@
 -(void)viewDidLoad
 
 {
+    
     if([clientID isEqualToString:@"YOUR CLIENT ID"]|[callbackURL isEqualToString:@"YOUR CALLBACK URL"]|[clientSecret isEqualToString:@"YOUR  CLIENT SECRET"])
     {
         UIAlertView *alview = [[UIAlertView alloc]initWithTitle:@"Error" message:@"change your callback url, secret id or client id to yours" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
