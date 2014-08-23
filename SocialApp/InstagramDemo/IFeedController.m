@@ -15,7 +15,10 @@
 
 #define REFRESH_HEADER_HEIGHT 52.0f //задаем высоту ячейки "pull-to-refresh"
 
-@implementation IFeedController
+@implementation IFeedController{
+    UIBarButtonItem *logoutButton ;
+
+}
 @synthesize feedTable,helloView,accessToken,image,items,textPull, textRelease, textLoading, refreshHeaderView, refreshLabel, refreshArrow, refreshSpinner;
 
 
@@ -59,12 +62,17 @@
 
 {
     [super viewDidLoad];
-//    if (!accessToken) {
-                [self openLoginView:self];
-//    }
-
+    
     
     accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"access_token"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    if (!accessToken) {
+        [self openLoginView:self];
+    }
+    else{
+        
+    }
+
     [UIView commitAnimations];
  
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
@@ -86,11 +94,11 @@
     [[self view]addSubview:feedTable];
     [[self feedTable]setDelegate:self];
   
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
     [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
-    [[self navigationItem]setRightBarButtonItem:item];
+    [[self navigationItem]setRightBarButtonItem:logoutButton];
     
     [[self view]bringSubviewToFront:helloView];
     [feedTable setRowHeight:440];
@@ -237,8 +245,19 @@
 -(void)logout:(id)sender
 
 {
+    
+    self.feedTable.dataSource=nil;
     [self.feedTable reloadData];
-    self.feedTable.dataSource==nil;
+    
+    
+    logoutButton.title=@"";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                    message:@"Logged out."
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
     NSURL *url = [[NSURL alloc]initWithString:@"http://instagram.com/accounts/logout/"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
 
@@ -461,7 +480,7 @@
     image = nil;
     [helloView removeFromSuperview];
     helloView = nil;
-    [[self navigationController]setNavigationBarHidden:NO];
+   // [[self navigationController]setNavigationBarHidden:NO];
     [self askStoreToLoadData];
     [self dismissViewControllerAnimated:YES completion:^{}];
     
