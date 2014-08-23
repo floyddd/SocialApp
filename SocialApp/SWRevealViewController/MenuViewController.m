@@ -38,10 +38,7 @@
         case 3:
             CellIdentifier = @"three";
             break;
-        case 4:
-            CellIdentifier = @"four";
-            break;
-
+        
     }
     
     
@@ -72,11 +69,7 @@
             return cell;
             break;
             
-        case 4:
-            //  cell.textLabel.text=@"Songs";
-            return cell;
-            break;
-
+        
             }
     
     return 0;
@@ -91,7 +84,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 5;
+    return 4;
 }
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
