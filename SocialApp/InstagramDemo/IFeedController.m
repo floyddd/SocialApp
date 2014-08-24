@@ -90,7 +90,7 @@
     
     
     CGRect tableFrame = [[UIScreen mainScreen]bounds];
-    feedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, tableFrame.size.width, tableFrame.size.height-40) style:UITableViewStylePlain];
+    feedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, tableFrame.size.width, tableFrame.size.height-40) style:UITableViewStylePlain];
     [[self view]addSubview:feedTable];
     [[self feedTable]setDelegate:self];
   
