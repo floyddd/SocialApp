@@ -68,6 +68,7 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
     if (!accessToken) {
         [self openLoginView:self];
+
     }
     else{
         
@@ -257,6 +258,8 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    
+    [self openLoginView:self];
     
     NSURL *url = [[NSURL alloc]initWithString:@"http://instagram.com/accounts/logout/"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];

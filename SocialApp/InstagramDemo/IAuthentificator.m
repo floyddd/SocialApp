@@ -25,6 +25,25 @@
 -(void)viewDidLoad
 
 {
+    UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    //The UINavigationItem is neede as a "box" that holds the Buttons or other elements
+    UINavigationItem *buttonCarrier = [[UINavigationItem alloc]initWithTitle:@"Login"];
+    
+    //Creating some buttons:
+   
+    UIBarButtonItem *barDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(signInDonePressed)];
+    
+    //Putting the Buttons on the Carrier
+
+    [buttonCarrier setRightBarButtonItem:barDoneButton];
+    
+    //The NavigationBar accepts those "Carrier" (UINavigationItem) inside an Array
+    NSArray *barItemArray = [[NSArray alloc]initWithObjects:buttonCarrier,nil];
+    
+    // Attaching the Array to the NavigationBar
+    [headerView setItems:barItemArray];
+    [self.view addSubview:headerView];
     
     if([clientID isEqualToString:@"YOUR CLIENT ID"]|[callbackURL isEqualToString:@"YOUR CALLBACK URL"]|[clientSecret isEqualToString:@"YOUR  CLIENT SECRET"])
     {
@@ -38,7 +57,9 @@
     [webView loadRequest:req];
     mdata = [NSMutableData data];
 }
-
+-(void)signInDonePressed{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 //загружаем окно авторизации, заходим под своим логином
 
