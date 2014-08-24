@@ -25,7 +25,7 @@
 -(void)viewDidLoad
 
 {
-    UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     
     //The UINavigationItem is neede as a "box" that holds the Buttons or other elements
     UINavigationItem *buttonCarrier = [[UINavigationItem alloc]initWithTitle:@"Login"];
