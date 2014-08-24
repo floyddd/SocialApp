@@ -32,7 +32,7 @@
     
     //Creating some buttons:
    
-    UIBarButtonItem *barDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(signInDonePressed)];
+    UIBarButtonItem *barDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(signInDonePressed)];
     
     //Putting the Buttons on the Carrier
 

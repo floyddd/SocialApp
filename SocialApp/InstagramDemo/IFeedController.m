@@ -67,11 +67,14 @@
     accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"access_token"];
     [[NSUserDefaults standardUserDefaults]synchronize];
     if (!accessToken) {
+
         [self openLoginView:self];
 
     }
     else{
-        
+        logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+        [[self navigationItem]setRightBarButtonItem:logoutButton];
+
     }
 
     [UIView commitAnimations];
@@ -95,11 +98,12 @@
     [[self view]addSubview:feedTable];
     [[self feedTable]setDelegate:self];
   
-    logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+// logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+// [[self navigationItem]setRightBarButtonItem:logoutButton];
     [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
-    [[self navigationItem]setRightBarButtonItem:logoutButton];
+   
     
     [[self view]bringSubviewToFront:helloView];
     [feedTable setRowHeight:440];
