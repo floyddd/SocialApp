@@ -256,12 +256,12 @@
     
     
     logoutButton.title=@"";
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message:@"Logged out."
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+//                                                    message:@"Logged out."
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil];
+//    [alert show];
     
     [self openLoginView:self];
     
