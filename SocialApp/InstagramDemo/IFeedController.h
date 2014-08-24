@@ -1,8 +1,9 @@
 //
-//  IFeedController.h
-//  InstagramDemo
+//  TweetTableViewCell.m
+//  SocialApp
 //
-//  Copyright (c) Nexitusor. All rights reserved.
+//  Created by MokshaX on 8/17/14. Contact:9841852849(Parag Regmi, iOS Developer)
+//  Copyright (c) 2014 MokshaX. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

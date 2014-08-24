@@ -1,9 +1,9 @@
 //
-//  DashboardViewController.h
-//  YashKumar
+//  TweetTableViewCell.m
+//  SocialApp
 //
-//  Created by Bidhee on 6/29/14.
-//  Copyright (c) 2014 Bidhee. All rights reserved.
+//  Created by MokshaX on 8/17/14. Contact:9841852849(Parag Regmi, iOS Developer)
+//  Copyright (c) 2014 MokshaX. All rights reserved.
 //
 
 

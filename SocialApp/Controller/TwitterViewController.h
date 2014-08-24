@@ -1,8 +1,8 @@
 //
-//  TwitterViewController.h
+//  TweetTableViewCell.m
 //  SocialApp
 //
-//  Created by MokshaX on 8/12/14.
+//  Created by MokshaX on 8/17/14. Contact:9841852849(Parag Regmi, iOS Developer)
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
 
