@@ -5,7 +5,8 @@
 //  Created by MokshaX on 8/12/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
-
+#define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+#define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #import "NSDate+PrettyDate.h"
 #import "AFNetworking.h"
 #import "TweetTableViewCell.h"
@@ -91,7 +92,7 @@
                             self.statuses = statuses;
                             [self.tableview reloadData];
                             
-                            
+                            HideNetworkActivityIndicator();
                         } errorBlock:^(NSError *error) {
                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                                             message:[error localizedDescription]
@@ -182,7 +183,7 @@
     
     [_twitter verifyCredentialsWithSuccessBlock:^(NSString *username) {
         [self getTImeline];
-        
+        ShowNetworkActivityIndicator();
         
     } errorBlock:^(NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
