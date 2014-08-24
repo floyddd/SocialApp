@@ -484,6 +484,8 @@
 
 -(void)didAuth:(NSMutableString *)token
 {
+    logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    [[self navigationItem]setRightBarButtonItem:logoutButton];
     HideNetworkActivityIndicator();
     image = nil;
     [helloView removeFromSuperview];

@@ -59,6 +59,7 @@ BOOL hasFacebook = NO;
 	[FBSession openActiveSessionWithReadPermissions:@[
                                                       @"basic_info",
                                                       @"public_profile",
+                                                      @"user_friends",
                                                       @"read_stream",
                                                       @"user_status",
                                                       ]
