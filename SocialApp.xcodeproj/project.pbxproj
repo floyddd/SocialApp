@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3507485919AA439400D4DFC2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3507485819AA439400D4DFC2 /* FacebookSDK.framework */; };
 		3513714F199A65BB00C31BE7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513714E199A65BB00C31BE7 /* Foundation.framework */; };
 		35137151199A65BB00C31BE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35137150199A65BB00C31BE7 /* CoreGraphics.framework */; };
 		35137153199A65BB00C31BE7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35137152199A65BB00C31BE7 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		3513717A199A65BB00C31BE7 /* SocialAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137179199A65BB00C31BE7 /* SocialAppTests.m */; };
 		35137187199A670300C31BE7 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137186199A670300C31BE7 /* FacebookViewController.m */; };
 		3513718A199A672700C31BE7 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137189199A672700C31BE7 /* TwitterViewController.m */; };
-		3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3513718E199A846C00C31BE7 /* FacebookSDK.framework */; };
 		35137192199A938F00C31BE7 /* NetworkActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35137191199A938F00C31BE7 /* NetworkActivity.m */; };
 		351371EF199BCA0F00C31BE7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371B9199BCA0F00C31BE7 /* AFHTTPClient.m */; };
 		351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 351371BD199BCA0F00C31BE7 /* AFImageRequestOperation.m */; };
@@ -81,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3507485819AA439400D4DFC2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		3513714B199A65BB00C31BE7 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3513714E199A65BB00C31BE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		35137150199A65BB00C31BE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,7 +103,6 @@
 		35137186199A670300C31BE7 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = Controller/FacebookViewController.m; sourceTree = "<group>"; };
 		35137188199A672700C31BE7 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterViewController.h; path = Controller/TwitterViewController.h; sourceTree = "<group>"; };
 		35137189199A672700C31BE7 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterViewController.m; path = Controller/TwitterViewController.m; sourceTree = "<group>"; };
-		3513718E199A846C00C31BE7 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		35137190199A938F00C31BE7 /* NetworkActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivity.h; sourceTree = "<group>"; };
 		35137191199A938F00C31BE7 /* NetworkActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivity.m; sourceTree = "<group>"; };
 		351371B8199BCA0F00C31BE7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35137151199A65BB00C31BE7 /* CoreGraphics.framework in Frameworks */,
-				3513718F199A846C00C31BE7 /* FacebookSDK.framework in Frameworks */,
+				3507485919AA439400D4DFC2 /* FacebookSDK.framework in Frameworks */,
 				35137153199A65BB00C31BE7 /* UIKit.framework in Frameworks */,
 				3513714F199A65BB00C31BE7 /* Foundation.framework in Frameworks */,
 			);
@@ -237,7 +237,7 @@
 		3513714D199A65BB00C31BE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3513718E199A846C00C31BE7 /* FacebookSDK.framework */,
+				3507485819AA439400D4DFC2 /* FacebookSDK.framework */,
 				3513714E199A65BB00C31BE7 /* Foundation.framework */,
 				35137150199A65BB00C31BE7 /* CoreGraphics.framework */,
 				35137152199A65BB00C31BE7 /* UIKit.framework */,
