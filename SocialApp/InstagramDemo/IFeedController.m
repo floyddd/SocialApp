@@ -264,7 +264,7 @@
 //                                          otherButtonTitles:nil];
 //    [alert show];
     
-    [self openLoginView:self];
+//    [self openLoginView:self];
     
     NSURL *url = [[NSURL alloc]initWithString:@"http://instagram.com/accounts/logout/"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
