@@ -13,11 +13,7 @@
 -(void)loadView
 
 {
-    CGRect webFrame = [[UIScreen mainScreen]applicationFrame];
-    webView = [[UIWebView alloc]initWithFrame:webFrame];
-    [webView setScalesPageToFit:YES];
-    [webView setDelegate:self];
-    [self setView:webView];
+
 }
 
 //показываем UIWebView
@@ -25,6 +21,11 @@
 -(void)viewDidLoad
 
 {
+    CGRect webFrame = [[UIScreen mainScreen]applicationFrame];
+    webView = [[UIWebView alloc]initWithFrame:webFrame];
+    [webView setScalesPageToFit:YES];
+    [webView setDelegate:self];
+    [self setView:webView];
     UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     
     //The UINavigationItem is neede as a "box" that holds the Buttons or other elements
