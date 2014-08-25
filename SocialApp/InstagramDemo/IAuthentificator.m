@@ -26,25 +26,28 @@
     [webView setScalesPageToFit:YES];
     [webView setDelegate:self];
     [self setView:webView];
-    UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    //UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     
     //The UINavigationItem is neede as a "box" that holds the Buttons or other elements
-    UINavigationItem *buttonCarrier = [[UINavigationItem alloc]initWithTitle:@"Login"];
+ //   UINavigationItem *buttonCarrier = [[UINavigationItem alloc]initWithTitle:@"Login"];
     
     //Creating some buttons:
    
-    UIBarButtonItem *barDoneButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(signInDonePressed)];
-    
+    UIButton *barDoneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 420, 320, 60)];
+    [barDoneButton addTarget:self action:@selector(signInDonePressed) forControlEvents:UIControlEventTouchUpInside];
     //Putting the Buttons on the Carrier
-
-    [buttonCarrier setRightBarButtonItem:barDoneButton];
+    barDoneButton.backgroundColor=[UIColor lightGrayColor];
+    [barDoneButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    
+    [self.view addSubview:barDoneButton];
+  //  [buttonCarrier setRightBarButtonItem:barDoneButton];
     
     //The NavigationBar accepts those "Carrier" (UINavigationItem) inside an Array
-    NSArray *barItemArray = [[NSArray alloc]initWithObjects:buttonCarrier,nil];
+    //NSArray *barItemArray = [[NSArray alloc]initWithObjects:buttonCarrier,nil];
     
     // Attaching the Array to the NavigationBar
-    [headerView setItems:barItemArray];
-    [self.view addSubview:headerView];
+  //  [headerView setItems:barItemArray];
+    //[self.view addSubview:headerView];
     
     if([clientID isEqualToString:@"YOUR CLIENT ID"]|[callbackURL isEqualToString:@"YOUR CALLBACK URL"]|[clientSecret isEqualToString:@"YOUR  CLIENT SECRET"])
     {
