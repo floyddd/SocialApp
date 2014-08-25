@@ -82,7 +82,7 @@
     NSLog(@"timeline action");
     
     [_twitter getHomeTimelineSinceID:nil
-                               count:100
+                               count:60
                         successBlock:^(NSArray *statuses) {
                             
                             NSLog(@"-- statuses: %@", statuses);
