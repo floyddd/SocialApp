@@ -20,8 +20,13 @@
 @implementation ViewController
 -(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
+    self.tableView.hidden=NO;
     NSLog(@"userdata %@",[user objectForKey:@"username"]);
 
+}
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    self.tableView.hidden=YES;
 }
 -(UIColor*)colorWithHexString:(NSString*)hex
 {
@@ -58,6 +63,7 @@
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -65,12 +71,26 @@
     
 self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"003D99"];
 
+    if ([FBSession activeSession].state != FBSessionStateCreatedTokenLoaded)
+    {
+        self.tableView.hidden=YES;
+    }
+    else
+    {
+        self.tableView.hidden=NO;
+    }
+    
+    
     
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
-    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 100, 100, 8)];
+    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(50, 300, 60, 8)];
     loginView.delegate = self;
+    
+
+
+
     
     [self.view addSubview:loginView];
     left.tintColor=[UIColor blackColor];
