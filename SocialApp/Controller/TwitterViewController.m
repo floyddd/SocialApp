@@ -179,8 +179,10 @@
     
     
     
-    
-    [cell.imgView setImageWithURL:[NSURL URLWithString:[[status valueForKey:@"user"] objectForKey:@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder-avatar"]];
+    NSString *imageURL=[[status valueForKey:@"user"] objectForKey:@"profile_image_url"];
+    imageURL=[imageURL stringByReplacingOccurrencesOfString:@"normal"
+                                            withString:@"bigger"];
+    [cell.imgView setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageNamed:@"placeholder-avatar"]];
     
     
     

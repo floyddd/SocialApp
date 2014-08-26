@@ -100,7 +100,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
 -(void)pullFilmography
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBALEZAphT2UnbuzmzlqpBR9OZB4bBCLRiLeZCWyfBsZAGJd0IGdTSehooZAEDc4fp8K3D0og7mIBgXARGCbsUlmRzO8BI03TLijuAzujfl4pG13bMqrhZCq02eHRq9BBdWdagnRreZC5JiyoaP9sxQTC06aesr8uodyAUQ8KlU6lF8OSr0jZCUZA5QfpGk8LdlViIB8i4cv7186ySXjgzCOhQZD"];
+        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBAJ82StXOx8EJrzmwrCZBHXeYjanBD9FNEAFN7ZAE0qvn7ontDsfStKfcTvzN3nRXTvg0Ee4P1YsZAFzt27qnymKjZARZBOeSuCZClE0aAWaphvAauCl7V6WZAsAq0cYmfnpGtf4uQ0AMm6RjRkadUN454evLmv6JFDPJ33vBA38lochiTEZC2KwDWal8H3nDnI2GBNyB7Tnb"];
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
