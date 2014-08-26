@@ -148,7 +148,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     [feedTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
    // [[self navigationController]setNavigationBarHidden:NO];
     
-    [self addPullToRefreshHeader];
+  //  [self addPullToRefreshHeader];
     textPull = @"Pull down to refresh..."; //устанавливаем текст для "pull-to-refresh"
     textRelease = @"Release to refresh...";
     textLoading = @"Loading...";
@@ -192,7 +192,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     [refreshHeaderView addSubview:refreshLabel];
     [refreshHeaderView addSubview:refreshArrow];
     [refreshHeaderView addSubview:refreshSpinner];
-    [self.feedTable addSubview:refreshHeaderView];
+    //[self.feedTable addSubview:refreshHeaderView];
 }
 
 
@@ -206,37 +206,37 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 
 {
-    if (isLoading) {
-       
-        if (scrollView.contentOffset.y > 0)
-            self.feedTable.contentInset = UIEdgeInsetsZero;
-        else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT)
-            self.feedTable.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    } else if (isDragging && scrollView.contentOffset.y < 0) {
-     
-        [UIView animateWithDuration:0.25 animations:^{
-            if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
-              
-                refreshLabel.text = self.textRelease;
-                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
-            } else {
-                NSLog(@"abc");
-                refreshLabel.text = self.textPull;
-                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
-            }
-        }];
-    }
+//    if (isLoading) {
+//       
+//        if (scrollView.contentOffset.y > 0)
+//            self.feedTable.contentInset = UIEdgeInsetsZero;
+//        else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT)
+//            self.feedTable.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//    } else if (isDragging && scrollView.contentOffset.y < 0) {
+//     
+//        [UIView animateWithDuration:0.25 animations:^{
+//            if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
+//              
+//                refreshLabel.text = self.textRelease;
+//                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
+//            } else {
+//                NSLog(@"abc");
+//                refreshLabel.text = self.textPull;
+//                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
+//            }
+//        }];
+//    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 
 {
-    if (isLoading) return;
-    isDragging = NO;
-    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
-        
-        [self startLoading];
-    }
+//    if (isLoading) return;
+//    isDragging = NO;
+//    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
+//        
+//        [self startLoading];
+//    }
 }
 
 - (void)startLoading
