@@ -37,10 +37,10 @@ BOOL hasFacebook = NO;
 		[self loginFacebook];
 		return;
 	}
-    
+    NSLog(@"permissions::%@",FBSession.activeSession.permissions);
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-	parameters[@"access_token"] = self.fbSession.accessTokenData;
-    
+	parameters[@"access_token"] = FBSession.activeSession.accessTokenData;
+    NSLog(@"TOKEN %@",parameters[@"access_token"]);
 	FBRequest *request = [FBRequest requestForGraphPath:@"me/feed"];
 	[request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
 		if (error) {
@@ -48,7 +48,7 @@ BOOL hasFacebook = NO;
 		} else {
 			self.posts =result;
             //    NSLog(@"%@",[[[result objectForKey:@"data"] objectAtIndex:0] objectForKey:@"status"]);
-            NSLog(@"data %@",self.posts);
+            NSLog(@"data %@",[result objectForKey:@"data"]);
             
 			[self.tableView reloadData];
 		}
@@ -57,9 +57,9 @@ BOOL hasFacebook = NO;
 
 - (void)loginFacebook {
 	[FBSession openActiveSessionWithReadPermissions:@[
-                                                      @"basic_info",
+
                                                       @"public_profile",
-                                                      @"user_friends",
+                                                      
                                                       @"read_stream",
                                                       @"user_status",
                                                       ]
