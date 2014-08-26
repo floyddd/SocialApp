@@ -68,6 +68,8 @@
 		357426FB19A2A01D0013390B /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F619A2A01D0013390B /* NSDate+Additions.m */; };
 		357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F819A2A01D0013390B /* NSString+Additions.m */; };
 		357426FD19A2A01D0013390B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */; };
+		C7B6506619AC468000A92769 /* MyCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6506319AC468000A92769 /* MyCellTableViewCell.m */; };
+		C7B6506719AC468000A92769 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6506519AC468000A92769 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +190,10 @@
 		357426F819A2A01D0013390B /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		357426F919A2A01D0013390B /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		C7B6506219AC468000A92769 /* MyCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCellTableViewCell.h; sourceTree = "<group>"; };
+		C7B6506319AC468000A92769 /* MyCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCellTableViewCell.m; sourceTree = "<group>"; };
+		C7B6506419AC468000A92769 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C7B6506519AC468000A92769 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +298,10 @@
 		35137184199A66C600C31BE7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C7B6506219AC468000A92769 /* MyCellTableViewCell.h */,
+				C7B6506319AC468000A92769 /* MyCellTableViewCell.m */,
+				C7B6506419AC468000A92769 /* ViewController.h */,
+				C7B6506519AC468000A92769 /* ViewController.m */,
 				351371D1199BCA0F00C31BE7 /* IFeedController.h */,
 				351371D2199BCA0F00C31BE7 /* IFeedController.m */,
 				3568CB4C19A11A910093BD2B /* TweetTableViewCell.h */,
@@ -585,8 +595,10 @@
 				357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */,
 				3568CB4219A0FB480093BD2B /* STHTTPRequest+STTwitter.m in Sources */,
 				3568CB4B19A0FB480093BD2B /* STHTTPRequest.m in Sources */,
+				C7B6506619AC468000A92769 /* MyCellTableViewCell.m in Sources */,
 				3513715B199A65BB00C31BE7 /* main.m in Sources */,
 				3568CB4A19A0FB480093BD2B /* JSONSyntaxHighlight.m in Sources */,
+				C7B6506719AC468000A92769 /* ViewController.m in Sources */,
 				3568CB4519A0FB480093BD2B /* STTwitterHTML.m in Sources */,
 				3568CAD9199FC5760093BD2B /* MenuViewController.m in Sources */,
 			);
