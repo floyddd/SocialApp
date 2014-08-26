@@ -18,16 +18,26 @@
 @end
 
 @implementation ViewController
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
+{
+    NSLog(@"userdata %@",[user objectForKey:@"username"]);
 
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
       self.title=@"Facebook";
     
+   
+
+    
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
+    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 100, 100, 8)];
+    loginView.delegate = self;
     
+    [self.view addSubview:loginView];
     left.tintColor=[UIColor blackColor];
     self.navigationItem.leftBarButtonItem=left;
     
@@ -55,7 +65,7 @@
 -(void)pullFilmography
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/579709429/home?access_token=CAACEdEose0cBAMYnzDPZBZB6lD5dW97Con35pzFpN8Dq0GXiTBh9ZCyCROVyvMwW1EfQ7kX03e4I05wDZAYySGWYobZAxMcBsQbSYZC8aefOQk0xVbywB6iMX39FEbPlU9dazzLCSl1omHjdcX6ZCsUIlD0L4E9wa8w2JKBknsw7WeyZBKvjFWIIMpYPizGeJXxuA2hE2hZBZAG68hKb5yhWmj"];
+        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBALEZAphT2UnbuzmzlqpBR9OZB4bBCLRiLeZCWyfBsZAGJd0IGdTSehooZAEDc4fp8K3D0og7mIBgXARGCbsUlmRzO8BI03TLijuAzujfl4pG13bMqrhZCq02eHRq9BBdWdagnRreZC5JiyoaP9sxQTC06aesr8uodyAUQ8KlU6lF8OSr0jZCUZA5QfpGk8LdlViIB8i4cv7186ySXjgzCOhQZD"];
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];

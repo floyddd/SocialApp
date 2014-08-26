@@ -7,7 +7,7 @@
 //
 #import <Social/Social.h>
 #import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController<UIImagePickerControllerDelegate>
+#import <FacebookSDK/FacebookSDK.h>
+@interface ViewController : UIViewController<UIImagePickerControllerDelegate,FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
