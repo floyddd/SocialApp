@@ -120,7 +120,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
 -(void)pullFilmography
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBAJ82StXOx8EJrzmwrCZBHXeYjanBD9FNEAFN7ZAE0qvn7ontDsfStKfcTvzN3nRXTvg0Ee4P1YsZAFzt27qnymKjZARZBOeSuCZClE0aAWaphvAauCl7V6WZAsAq0cYmfnpGtf4uQ0AMm6RjRkadUN454evLmv6JFDPJ33vBA38lochiTEZC2KwDWal8H3nDnI2GBNyB7Tnb"];
+        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBAN2bE18TANZBzaDInTZCpmaFLZAvb4O1ZCC9MOTaVcDrZAiG8qF7zmcuu0GViAcANiRZAFqu93ZC2RXlL6yQRKKZAvNuaj3EkBuGrEpt5b53jOGn2eyNp4Mo4igmEcLB5jZAuDQWUTZA2hpfZCv075cKsWYB3u4LutOnhWu9Oey618CBrXZBYbzfX0hPXPqIKmuW15rZAsX7TCBWZC"];
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -158,7 +158,8 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     NSLog(@"post %@",self.posts[0]);
     cell.lblTitle.text=[[self.posts[indexPath.row] objectForKey:@"from"] objectForKey:@"name"];
     cell.lblMessage.text=[self.posts[indexPath.row] objectForKey:@"message"];
-    NSString *str=[self.posts[indexPath.row] objectForKey:@"picture"];
+    NSString *str=  [self.posts[indexPath.row] objectForKey:@"picture"];
+    NSLog(@"test %@",str);
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
 
@@ -177,7 +178,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     
     
     NSString *profile= [[self.posts[indexPath.row] objectForKey:@"from"] objectForKey:@"id"];
-    NSString *pic=[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture",profile];
+    NSString *pic=[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profile];
     NSLog(@"url %@",pic);
     NSURL *urls = [NSURL URLWithString:pic];
     NSURLRequest *requests=[NSURLRequest requestWithURL:urls];
