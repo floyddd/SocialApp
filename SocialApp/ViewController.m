@@ -5,6 +5,9 @@
 //  Created by MokshaX on 8/25/14.
 //  Copyright (c) 2014 MokshaX. All rights reserved.
 //
+#define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+#define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
+
 #import "MyCellTableViewCell.h"
 #import "AFNetworking.h"
 #import "ViewController.h"
@@ -77,6 +80,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     }
     else
     {
+        ShowNetworkActivityIndicator();
         self.tableView.hidden=NO;
     }
     
@@ -131,10 +135,11 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
         [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
                                                             self. filmographyArray = [JSON objectForKey:@"data"];
-                                                            
+
                                                             self.posts=[JSON objectForKey:@"data"];
                                                             NSLog(@"cdount %d",[self.posts count]);
                                                             [self.tableView reloadData];
+                                                            HideNetworkActivityIndicator();
                                                             NSLog(@"%@", JSON);
                                                         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response,
                                                                     NSError *error, id JSON) {
