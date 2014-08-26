@@ -405,7 +405,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
                            action:@selector(pushIT:) forControlEvents:UIControlEventTouchUpInside];
     [cell.likeButton addTarget:self
                         action:@selector(sendLike:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [cell.likeButton setImage:[UIImage imageNamed:@"hurtred.jpg"] forState:UIControlStateNormal];
     [[cell ownerName]setText:tut.imageOwnerNickname];
     [[cell time]setText:[NSString stringWithFormat:@"%@",tut.timeFromRelease]];
     [[cell likesCount]setText:[NSString stringWithFormat:@"%i likes",tut.likeCount]];
@@ -417,6 +417,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     
     if(tut.likeStatus)
     {
+        cell.btnLikeOutlet.titleLabel.text=@"  Liked";
         cell.likeButton.imageView.image = [UIImage imageNamed:@"hurtred.jpg"];
     }
     else
@@ -459,6 +460,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
   
     if(item.likeStatus)
     {
+        
         [sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
         [[items objectAtIndex:[indexPath row]]setLikeCount:likesCount-1];
