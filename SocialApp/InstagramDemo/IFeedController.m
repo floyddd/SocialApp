@@ -112,7 +112,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     else{
         logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
         [[self navigationItem]setRightBarButtonItem:logoutButton];
-
+        logoutButton.tintColor=[UIColor whiteColor];
     }
 
     [UIView commitAnimations];
@@ -294,6 +294,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     
     
     logoutButton.title=@"";
+    
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
 //                                                    message:@"Logged out."
 //                                                   delegate:self
@@ -524,7 +525,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
 -(void)didAuth:(NSMutableString *)token
 {
     logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
-
+    logoutButton.tintColor=[UIColor whiteColor];
     [[self navigationItem]setRightBarButtonItem:logoutButton];
     HideNetworkActivityIndicator();
     image = nil;
