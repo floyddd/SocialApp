@@ -82,6 +82,7 @@
 {
     [super viewDidLoad];
       self.title=@"Facebook";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
 self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"003D99"];
 UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
