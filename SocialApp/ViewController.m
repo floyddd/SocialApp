@@ -15,6 +15,7 @@
 @interface ViewController (){
     FBLoginView *loginView ;
     id token;
+    NSString *urls;
 }
 @property (strong) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -151,9 +152,16 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
 -(void)pullFilmography
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        id token=[[FBSession activeSession]accessTokenData];
-        NSLog(@"token %@",token);
-        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=CAACEdEose0cBACDqiLJv0rMFIb7fZCljcyzHzhEpRUq8211FXuckWJZAYlA0bFv2p6A5weDOCI5E96MghanMfjvqyXWNpHntCqdCZC2JzbaAkzel1jKx9QCp79zMy6cnG7Fu1oe7GWG1AoTogAF3hrwwQvM16lZBY9T1X6uVEzELoDrKpaWW1hOODM6Q86nZCndzRaCisHnFyIz6sNwBxrHxjB6KZAzNYZD"];
+        token=[[FBSession activeSession]accessTokenData];
+        NSLog(@"token %@",[[FBSession activeSession]permissions]);
+        BOOL isTheObjectThere = [[[FBSession activeSession]permissions] containsObject: @"read_stream"];
+        NSLog(@"object there %hhd",isTheObjectThere);
+        
+        if (isTheObjectThere) {
+            urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=%@",token];
+        }
+        else{
+            urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=CAACEdEose0cBACDqiLJv0rMFIb7fZCljcyzHzhEpRUq8211FXuckWJZAYlA0bFv2p6A5weDOCI5E96MghanMfjvqyXWNpHntCqdCZC2JzbaAkzel1jKx9QCp79zMy6cnG7Fu1oe7GWG1AoTogAF3hrwwQvM16lZBY9T1X6uVEzELoDrKpaWW1hOODM6Q86nZCndzRaCisHnFyIz6sNwBxrHxjB6KZAzNYZD"];}
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
