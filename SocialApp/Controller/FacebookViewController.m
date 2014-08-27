@@ -69,8 +69,7 @@ BOOL hasFacebook = NO;
 	                                                  NSError *error) {
                                       if (error) {
                                           hasFacebook = NO;
-                                          NSLog(error.debugDescription);
-                                          NSLog(error.description);
+                                     
                                       } else {
                                           self.fbSession = session;
                                           hasFacebook = YES;
@@ -137,7 +136,7 @@ FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, 
 loginView.delegate = self;
      [self.view addSubview:loginView];
     
-    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     if (FBSession.activeSession.state == FBSessionStateOpen ||
         FBSession.activeSession.state == FBSessionStateOpenTokenExtended) {
         self.fbSession = FBSession.activeSession;

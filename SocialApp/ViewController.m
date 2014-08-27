@@ -221,8 +221,8 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
     NSString *profile= [[self.posts[indexPath.row] objectForKey:@"from"] objectForKey:@"id"];
     NSString *pic=[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profile];
     NSLog(@"url %@",pic);
-    NSURL *urls = [NSURL URLWithString:pic];
-    NSURLRequest *requests=[NSURLRequest requestWithURL:urls];
+    NSURL *urlss = [NSURL URLWithString:pic];
+    NSURLRequest *requests=[NSURLRequest requestWithURL:urlss];
 
     [cell.imgviewProfile setImageWithURLRequest:requests
                              placeholderImage:nil

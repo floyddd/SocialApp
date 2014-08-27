@@ -116,7 +116,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     }
 
     [UIView commitAnimations];
- 
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
