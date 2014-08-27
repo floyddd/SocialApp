@@ -137,7 +137,25 @@
                             [alert show];
                         }];
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        TweetTableViewCell *cell = (TweetTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [tweetSheet setInitialText:[NSString stringWithFormat:@"%@ ",cell.lblUsername.text]];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter Login Alert"
+                                                        message:@"Log in to Twitter via Settings of your iPhone to access the sharing feature!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    NSLog(@"%d", indexPath.row); // you can see selected row number in your console;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -194,6 +212,8 @@
     cell.lblTime.text=[formatter stringFromDate:date];
     cell.lblScreenName.text=[status valueForKeyPath:@"user.name"];
     cell.lblUsername.text=[NSString stringWithFormat:@"@%@",screenName];
+    
+    NSLog(@"username %@",screenName);
     
     cell.lblTimeInterval.text = [NSString stringWithFormat:@"%@,", [date prettyDate]];
     
