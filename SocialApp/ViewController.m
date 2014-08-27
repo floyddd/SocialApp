@@ -12,23 +12,31 @@
 #import "AFNetworking.h"
 #import "ViewController.h"
 #import "FBCell.h"
-@interface ViewController ()
+@interface ViewController (){
+    FBLoginView *loginView ;
+    id token;
+}
 @property (strong) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) NSMutableArray * filmographyArray;
+
 - (IBAction)btnPostStatus:(id)sender;
 - (IBAction)btnPostPhoto:(id)sender;
 @end
 
 @implementation ViewController
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginVie user:(id<FBGraphUser>)user
 {
     self.tableView.hidden=NO;
-    NSLog(@"userdata %@",[user objectForKey:@"username"]);
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
+        right.tintColor=[UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem=right;
+     [loginView removeFromSuperview];
 
 }
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginVie
 {
+    self.navigationItem.rightBarButtonItem=nil;
+    [self.view addSubview:loginView];
     self.tableView.hidden=YES;
 }
 -(UIColor*)colorWithHexString:(NSString*)hex
@@ -66,38 +74,57 @@
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
 }
-
+-(void)Logout{
+    [self.view addSubview:loginView];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
       self.title=@"Facebook";
     
 self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"003D99"];
-
+UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
     if ([FBSession activeSession].state != FBSessionStateCreatedTokenLoaded)
     {
         self.tableView.hidden=YES;
+        
+          [self.view addSubview:loginView];
     }
     else
     {
         ShowNetworkActivityIndicator();
         self.tableView.hidden=NO;
+        loginView.hidden=YES;
+        
     }
     
     
     
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
-    
-    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(50, 300, 60, 8)];
+   // self.navigationItem.rightBarButtonItem=right;
+    right.tintColor=[UIColor whiteColor];
+  loginView  = [[FBLoginView alloc] initWithFrame:CGRectMake(50, 300, 60, 8)];
     loginView.delegate = self;
+    loginView.readPermissions=@[@"read_stream",@"public_profile",@"user_friends"];
+    token=[[FBSession activeSession]accessTokenData];
+    NSString *graphLink=[NSString stringWithFormat:@"/me/home?access_token=%@",token];
+    [FBRequestConnection startWithGraphPath:graphLink
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+
+                                              ) {
+                              /* handle the result */
+                              NSLog(@"result %@",result);
+                          }];
+
     
-
-
-
-    
-    [self.view addSubview:loginView];
-    left.tintColor=[UIColor blackColor];
+  
+    left.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem=left;
     
     
@@ -124,7 +151,9 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
 -(void)pullFilmography
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/floydparag/home?access_token=CAACEdEose0cBAN2bE18TANZBzaDInTZCpmaFLZAvb4O1ZCC9MOTaVcDrZAiG8qF7zmcuu0GViAcANiRZAFqu93ZC2RXlL6yQRKKZAvNuaj3EkBuGrEpt5b53jOGn2eyNp4Mo4igmEcLB5jZAuDQWUTZA2hpfZCv075cKsWYB3u4LutOnhWu9Oey618CBrXZBYbzfX0hPXPqIKmuW15rZAsX7TCBWZC"];
+        id token=[[FBSession activeSession]accessTokenData];
+        NSLog(@"token %@",token);
+        NSString *urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=CAACEdEose0cBACDqiLJv0rMFIb7fZCljcyzHzhEpRUq8211FXuckWJZAYlA0bFv2p6A5weDOCI5E96MghanMfjvqyXWNpHntCqdCZC2JzbaAkzel1jKx9QCp79zMy6cnG7Fu1oe7GWG1AoTogAF3hrwwQvM16lZBY9T1X6uVEzELoDrKpaWW1hOODM6Q86nZCndzRaCisHnFyIz6sNwBxrHxjB6KZAzNYZD"];
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -134,8 +163,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
         AFJSONRequestOperation *operation =
         [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                            self. filmographyArray = [JSON objectForKey:@"data"];
-
+                                                         
                                                             self.posts=[JSON objectForKey:@"data"];
                                                             NSLog(@"cdount %d",[self.posts count]);
                                                             [self.tableView reloadData];

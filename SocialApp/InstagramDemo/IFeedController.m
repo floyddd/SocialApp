@@ -121,7 +121,7 @@ self.navigationController.navigationBar.barTintColor = [self colorWithHexString:
     
     
     
-    left.tintColor=[UIColor blackColor];
+    left.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem=left;
     
     
