@@ -12,6 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imgVIewPhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *imgviewProfile;
-@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+@property (weak, nonatomic) IBOutlet UITextView *lblMessage;
 
 @end
