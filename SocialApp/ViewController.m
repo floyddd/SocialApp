@@ -162,7 +162,7 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
             urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=%@",token];
         }
         else{
-            urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=CAACEdEose0cBACDqiLJv0rMFIb7fZCljcyzHzhEpRUq8211FXuckWJZAYlA0bFv2p6A5weDOCI5E96MghanMfjvqyXWNpHntCqdCZC2JzbaAkzel1jKx9QCp79zMy6cnG7Fu1oe7GWG1AoTogAF3hrwwQvM16lZBY9T1X6uVEzELoDrKpaWW1hOODM6Q86nZCndzRaCisHnFyIz6sNwBxrHxjB6KZAzNYZD"];}
+            urls=[NSString stringWithFormat:@"https://graph.facebook.com/me/home?access_token=CAACEdEose0cBAI8tlYsicsK6ftnIZBzBQdBF2ZBmGTbZAOV3ZB4mRmljUZA24lcQYh101NbG17HvEUkwQrWSEigMqPj9wdhfIz2pv1MaZAHFXwoHGhC5feFZBy8qA8I6jwSnOpaH5MOFa661d2l91I1tQ78CCwntaHVTXg1KElOsyrZBAPT516FK0QSiP1WU0JPdAVrxUACscyOCELgDlabXnSmgtiDla2cZD"];}
         NSURL *url = [NSURL URLWithString:urls];
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
