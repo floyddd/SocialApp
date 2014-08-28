@@ -71,7 +71,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 
 {
-    webView.frame=CGRectMake(0, 30, 320, 500);
+    webView.frame=CGRectMake(0, 20, 320, 500);
     NSString *currentUrl = [[request URL]absoluteString];
     NSString *prefix = [NSString stringWithFormat:@"%@/?code=",callbackURL];
     
