@@ -7,7 +7,7 @@
 //
 #define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
 #define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
-
+#import "NoPictureFbCell.h"
 #import "MyCellTableViewCell.h"
 #import "AFNetworking.h"
 #import "ViewController.h"
@@ -19,6 +19,7 @@
 }
 @property (strong) NSArray *posts;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 - (IBAction)btnPostStatus:(id)sender;
 - (IBAction)btnPostPhoto:(id)sender;
@@ -31,11 +32,13 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
         right.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem=right;
+        self.topView.hidden=NO;
      [loginView removeFromSuperview];
 
 }
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginVie
 {
+    self.topView.hidden=YES;
     self.navigationItem.rightBarButtonItem=nil;
     [self.view addSubview:loginView];
     self.tableView.hidden=YES;
@@ -202,6 +205,15 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
     cell.lblMessage.text=[self.posts[indexPath.row] objectForKey:@"message"];
     NSString *str=  [self.posts[indexPath.row] objectForKey:@"picture"];
     NSLog(@"test %@",str);
+    
+    if (str==nil) {
+        static NSString *CellIdentifier = @"NoPicture";
+        NoPictureFbCell *noPictureCell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    }
+    
+    
+    
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
 

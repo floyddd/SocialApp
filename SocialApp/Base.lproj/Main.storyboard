@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKU-Pc-Rpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="417"/>
+            <point key="canvasLocation" x="341" y="-85"/>
         </scene>
         <!--Twitter View Controller - Twitter-->
         <scene sceneID="hjD-Fr-U2Z">
@@ -161,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5q-gT-LeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="354"/>
+            <point key="canvasLocation" x="-357" y="223"/>
         </scene>
         <!--Facebook View Controller-->
         <scene sceneID="U6h-bL-OZv">
@@ -489,6 +489,42 @@
                                             <outlet property="lblTitle" destination="UNo-Dl-pcm" id="LuD-m4-yI3"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoPicture" rowHeight="147" id="Ng9-SX-rRt" customClass="NoPictureFbCell">
+                                        <rect key="frame" x="0.0" y="257" width="320" height="147"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ng9-SX-rRt" id="2Ls-OJ-ebv">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3J-yq-qce">
+                                                    <rect key="frame" x="99" y="42" width="216" height="80"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="201" translatesAutoresizingMaskIntoConstraints="NO" id="WuY-Fa-dVl">
+                                                    <rect key="frame" x="99" y="10" width="201" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wOQ-vC-g6i">
+                                                    <rect key="frame" x="5" y="11" width="68" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgView" destination="wOQ-vC-g6i" id="yNG-1X-QUR"/>
+                                            <outlet property="imgviewProfile" destination="wOQ-vC-g6i" id="psO-W1-phO"/>
+                                            <outlet property="lblMessage" destination="f3J-yq-qce" id="B4o-X4-t0s"/>
+                                            <outlet property="lblTitle" destination="WuY-Fa-dVl" id="7b4-Fn-ukO"/>
+                                            <outlet property="textView" destination="f3J-yq-qce" id="gKX-at-tPU"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Vfw-aE-n6N" id="e1P-TS-2xE"/>
@@ -539,6 +575,7 @@
                     <connections>
                         <outlet property="imageView" destination="HiD-2Q-DYz" id="SRy-bv-h6n"/>
                         <outlet property="tableView" destination="ZGH-gu-ijH" id="F1b-vk-r5u"/>
+                        <outlet property="topView" destination="vgp-eT-QqT" id="pbe-iw-9oY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqH-Pd-nCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -548,8 +585,11 @@
     </scenes>
     <resources>
         <image name="facebook.png" width="1350" height="1350"/>
+        <image name="facebook.png" width="1350" height="1350"/>
         <image name="home.png" width="1000" height="1000"/>
         <image name="instagram.png" width="256" height="256"/>
+        <image name="instagram.png" width="256" height="256"/>
+        <image name="twitter.png" width="1024" height="1024"/>
         <image name="twitter.png" width="1024" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
