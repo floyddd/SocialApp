@@ -30,11 +30,11 @@
 {
     self.tableView.hidden=NO;
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
-        right.tintColor=[UIColor whiteColor];
+    right.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem=right;
-        self.topView.hidden=NO;
-     [loginView removeFromSuperview];
-
+    self.topView.hidden=NO;
+    [loginView removeFromSuperview];
+    
 }
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginVie
 {
@@ -84,16 +84,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      self.title=@"Facebook";
+    self.title=@"Facebook";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     
-self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"003D99"];
-UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
+    self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"003D99"];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(Logout)];
     if ([FBSession activeSession].state != FBSessionStateCreatedTokenLoaded)
     {
         self.tableView.hidden=YES;
         
-          [self.view addSubview:loginView];
+        [self.view addSubview:loginView];
     }
     else
     {
@@ -107,9 +107,9 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
     
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
-   // self.navigationItem.rightBarButtonItem=right;
+    // self.navigationItem.rightBarButtonItem=right;
     right.tintColor=[UIColor whiteColor];
-  loginView  = [[FBLoginView alloc] initWithFrame:CGRectMake(50, 300, 60, 8)];
+    loginView  = [[FBLoginView alloc] initWithFrame:CGRectMake(50, 300, 60, 8)];
     loginView.delegate = self;
     loginView.readPermissions=@[@"read_stream",@"public_profile",@"user_friends"];
     token=[[FBSession activeSession]accessTokenData];
@@ -121,14 +121,14 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
                                               FBRequestConnection *connection,
                                               id result,
                                               NSError *error
-
+                                              
                                               ) {
                               /* handle the result */
                               NSLog(@"result %@",result);
                           }];
-
     
-  
+    
+    
     left.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem=left;
     
@@ -142,7 +142,7 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
      selector:@selector(preferredContentSizeChanged:)
      name:UIContentSizeCategoryDidChangeNotification
      object:nil];
-
+    
     [self pullFilmography];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -171,11 +171,11 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         //AFNetworking asynchronous url request
         
-
+        
         AFJSONRequestOperation *operation =
         [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                         
+                                                            
                                                             self.posts=[JSON objectForKey:@"data"];
                                                             NSLog(@"cdount %d",[self.posts count]);
                                                             [self.tableView reloadData];
@@ -186,8 +186,8 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
                                                             NSLog(@"Request Failed with Error: %@, %@", error, error.userInfo);
                                                         }];
         [operation start];
-
-   });
+        
+    });
 }
 - (void)preferredContentSizeChanged:(NSNotification *)notification {
 	[self.tableView reloadData];
@@ -207,37 +207,18 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
     NSLog(@"test %@",str);
     
     if (str==nil) {
-        static NSString *CellIdentifier = @"NoPicture";
-        NoPictureFbCell *noPictureCell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
+        //static NSString *CellIdentifier = @"NoPicture";
+       // NoPictureFbCell *noPictureCell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        
     }
     
     
     
     NSURL *url = [NSURL URLWithString:str];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
-
-
+    
+    
     [cell.imgVIewPhoto setImageWithURLRequest:request
-                     placeholderImage:nil
-                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                  
-                                  // do image resize here
-                                  
-                                  // then set image view
-                                  
-                                  cell.imgVIewPhoto.image = image;
-                              }
-                              failure:nil];
-    
-    
-    NSString *profile= [[self.posts[indexPath.row] objectForKey:@"from"] objectForKey:@"id"];
-    NSString *pic=[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profile];
-    NSLog(@"url %@",pic);
-    NSURL *urlss = [NSURL URLWithString:pic];
-    NSURLRequest *requests=[NSURLRequest requestWithURL:urlss];
-
-    [cell.imgviewProfile setImageWithURLRequest:requests
                              placeholderImage:nil
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           
@@ -245,34 +226,53 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
                                           
                                           // then set image view
                                           
-                                          cell.imgviewProfile.image = image;
+                                          cell.imgVIewPhoto.image = image;
                                       }
                                       failure:nil];
-
+    
+    
+    NSString *profile= [[self.posts[indexPath.row] objectForKey:@"from"] objectForKey:@"id"];
+    NSString *pic=[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large",profile];
+    NSLog(@"url %@",pic);
+    NSURL *urlss = [NSURL URLWithString:pic];
+    NSURLRequest *requests=[NSURLRequest requestWithURL:urlss];
+    
+    [cell.imgviewProfile setImageWithURLRequest:requests
+                               placeholderImage:nil
+                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                            
+                                            // do image resize here
+                                            
+                                            // then set image view
+                                            
+                                            cell.imgviewProfile.image = image;
+                                        }
+                                        failure:nil];
+    
     
     return cell;
-//	NSDictionary *wallPost = [self.posts objectAtIndex:indexPath.row];
-//
-//	NSString *cellIdentifier;
-//	if (wallPost[@"picture"] && wallPost[@"message"]) {
-//		cellIdentifier = @"FBPictureCell";
-//	} else if (wallPost[@"picture"] && !wallPost[@"message"]) {
-//		cellIdentifier = @"FBPictureOnlyCell";
-//	} else {
-//		cellIdentifier = @"FBCell";
-//	}
-//    
-//	FBCell *fbCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    
-//	fbCell.wallPost = wallPost;
-//    
-//	return fbCell;
+    //	NSDictionary *wallPost = [self.posts objectAtIndex:indexPath.row];
+    //
+    //	NSString *cellIdentifier;
+    //	if (wallPost[@"picture"] && wallPost[@"message"]) {
+    //		cellIdentifier = @"FBPictureCell";
+    //	} else if (wallPost[@"picture"] && !wallPost[@"message"]) {
+    //		cellIdentifier = @"FBPictureOnlyCell";
+    //	} else {
+    //		cellIdentifier = @"FBCell";
+    //	}
+    //
+    //	FBCell *fbCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    //
+    //	fbCell.wallPost = wallPost;
+    //
+    //	return fbCell;
 }
 //- (CGFloat)tableView:(UITableView *)tableView
 //heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //	NSDictionary *post = [self.posts objectAtIndex:indexPath.row];
 //	float height = 80;
-//    
+//
 //	NSString *string = post[@"message"];
 //	if (string) {
 //		NSDictionary *attributes = @{
@@ -285,13 +285,13 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
 //                                      NSStringDrawingUsesFontLeading)
 //                          attributes:attributes
 //                             context:nil];
-//        
+//
 //		height += ceilf(CGRectGetHeight(bodyFrame));
 //	}
 //	if (post[@"picture"]) {
 //		height += 136 + 12;
 //	}
-//    
+//
 //	return height;
 //}
 - (IBAction)btnPostStatus:(id)sender {
@@ -364,7 +364,7 @@ UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:U
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-  
+    
 	return self.posts.count;
     
 }

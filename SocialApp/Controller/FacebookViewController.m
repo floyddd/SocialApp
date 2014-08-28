@@ -69,7 +69,7 @@ BOOL hasFacebook = NO;
 	                                                  NSError *error) {
                                       if (error) {
                                           hasFacebook = NO;
-                                     
+                                          
                                       } else {
                                           self.fbSession = session;
                                           hasFacebook = YES;
@@ -130,11 +130,11 @@ BOOL hasFacebook = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     self.title=@"Facebook";
-FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
-loginView.delegate = self;
-     [self.view addSubview:loginView];
+    FBLoginView *loginView = [[FBLoginView alloc] initWithFrame:CGRectMake(13, 347, self.view.bounds.size.width - 38, 8)];
+    loginView.delegate = (id)self;
+    [self.view addSubview:loginView];
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     if (FBSession.activeSession.state == FBSessionStateOpen ||
@@ -143,15 +143,15 @@ loginView.delegate = self;
         loginView.hidden=YES;
         hasFacebook = YES;
     }
-
-
-[self updatePosts];
-[[NSNotificationCenter defaultCenter]
- addObserver:self
- selector:@selector(preferredContentSizeChanged:)
- name:UIContentSizeCategoryDidChangeNotification
- object:nil];
-
+    
+    
+    [self updatePosts];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(preferredContentSizeChanged:)
+     name:UIContentSizeCategoryDidChangeNotification
+     object:nil];
+    
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
@@ -188,33 +188,33 @@ loginView.delegate = self;
                     }];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)btnPostStatus:(id)sender {
-
-
-if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-    SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     
     
-    
-    [self presentViewController:controller animated:YES completion:Nil];
-} else {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
-                                                    message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        
+        
+        [self presentViewController:controller animated:YES completion:Nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
+                                                        message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 - (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
 {
@@ -242,21 +242,21 @@ if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
     [self dismissViewControllerAnimated:YES completion:^{
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
             
-        
-
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        
+            
+            
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            
+            
             [controller addImage:self.imageView.image];
             [self presentViewController:controller animated:YES completion:Nil];}
-             else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
-                                                                message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook Login Alert"
+                                                            message:@"Log in to Facebook via Settings of your iPhone to access the sharing feature!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
         
         // for example, presenting a vc or performing a segue
     }];
@@ -277,7 +277,7 @@ if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 	}
     
 	FBCell *fbCell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
+    
 	fbCell.wallPost = wallPost;
     
 	return fbCell;
@@ -327,6 +327,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self presentViewController:imagePicker animated:YES completion:nil];
     
-
+    
 }
 @end
