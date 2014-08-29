@@ -7,7 +7,7 @@
 //
 #define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
 #define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
-#import "NoPictureFbCell.h"
+
 #import "MyCellTableViewCell.h"
 #import "AFNetworking.h"
 #import "ViewController.h"

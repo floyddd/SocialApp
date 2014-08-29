@@ -79,7 +79,6 @@
 		357426FB19A2A01D0013390B /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F619A2A01D0013390B /* NSDate+Additions.m */; };
 		357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426F819A2A01D0013390B /* NSString+Additions.m */; };
 		357426FD19A2A01D0013390B /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */; };
-		C78F76EA19AF068F00965628 /* NoPictureFbCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C78F76E919AF068F00965628 /* NoPictureFbCell.m */; };
 		C7B6506619AC468000A92769 /* MyCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6506319AC468000A92769 /* MyCellTableViewCell.m */; };
 		C7B6506719AC468000A92769 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B6506519AC468000A92769 /* ViewController.m */; };
 /* End PBXBuildFile section */
@@ -213,8 +212,6 @@
 		357426F819A2A01D0013390B /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		357426F919A2A01D0013390B /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		357426FA19A2A01D0013390B /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
-		C78F76E819AF068F00965628 /* NoPictureFbCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoPictureFbCell.h; path = SocialApp/NoPictureFbCell.h; sourceTree = "<group>"; };
-		C78F76E919AF068F00965628 /* NoPictureFbCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoPictureFbCell.m; path = SocialApp/NoPictureFbCell.m; sourceTree = "<group>"; };
 		C7B6506219AC468000A92769 /* MyCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCellTableViewCell.h; sourceTree = "<group>"; };
 		C7B6506319AC468000A92769 /* MyCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCellTableViewCell.m; sourceTree = "<group>"; };
 		C7B6506419AC468000A92769 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -249,8 +246,6 @@
 		35137142199A65BB00C31BE7 = {
 			isa = PBXGroup;
 			children = (
-				C78F76E819AF068F00965628 /* NoPictureFbCell.h */,
-				C78F76E919AF068F00965628 /* NoPictureFbCell.m */,
 				35137154199A65BB00C31BE7 /* SocialApp */,
 				35137173199A65BB00C31BE7 /* SocialAppTests */,
 				3513714D199A65BB00C31BE7 /* Frameworks */,
@@ -640,7 +635,6 @@
 				351371F1199BCA0F00C31BE7 /* AFImageRequestOperation.m in Sources */,
 				351371F2199BCA0F00C31BE7 /* AFJSONRequestOperation.m in Sources */,
 				351371F4199BCA0F00C31BE7 /* AFPropertyListRequestOperation.m in Sources */,
-				C78F76EA19AF068F00965628 /* NoPictureFbCell.m in Sources */,
 				351371FD199BCA0F00C31BE7 /* IFeedItem.m in Sources */,
 				357426FC19A2A01D0013390B /* NSString+Additions.m in Sources */,
 				3568CB4219A0FB480093BD2B /* STHTTPRequest+STTwitter.m in Sources */,

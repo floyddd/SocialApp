@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oMS-05-QKf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="oMS-05-QKf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Feed Controller-->
@@ -15,22 +15,13 @@
                     <view key="view" contentMode="scaleToFill" id="nkP-ra-Cad">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxN-6n-hry">
-                                <rect key="frame" x="34" y="140" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bWH-iY-NgD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKU-Pc-Rpd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="341" y="-85"/>
+            <point key="canvasLocation" x="-331" y="455"/>
         </scene>
         <!--Twitter View Controller - Twitter-->
         <scene sceneID="hjD-Fr-U2Z">
@@ -236,7 +227,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Vn-Xc-72C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-345" y="-37"/>
+            <point key="canvasLocation" x="206" y="242"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="MOX-tg-ux6">
@@ -284,18 +275,36 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="RUj-Cl-n4k">
-                                <rect key="frame" x="7" y="197" width="169" height="129"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRD-0j-iO7">
+                                <rect key="frame" x="184" y="205" width="116" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-CD-a57">
-                                <rect key="frame" x="174" y="204" width="138" height="114"/>
+                                <state key="normal" image="twitter.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Hcj-24-hgo" kind="push" id="y2t-db-3kO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PP-N6-29Q">
+                                <rect key="frame" x="27" y="200" width="128" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="HsE-VG-nP6">
-                                <rect key="frame" x="0.0" y="334" width="171" height="140"/>
+                                <state key="normal" image="facebook.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Vfw-aE-n6N" kind="push" id="zi0-Nw-LaO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edu-5C-6g2">
+                                <rect key="frame" x="20" y="334" width="135" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" image="instagram.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="JBg-xs-Una" kind="push" id="a2m-VC-UJM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPP-O2-PRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="-55"/>
+            <point key="canvasLocation" x="-991" y="345"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="pBA-YR-g1F">
@@ -451,7 +460,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="235" id="RDv-Of-3Kl" customClass="MyCellTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="235"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RDv-Of-3Kl" id="Yqs-Qh-n32">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="234"/>
@@ -490,7 +499,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoPicture" rowHeight="147" id="Ng9-SX-rRt" customClass="NoPictureFbCell">
-                                        <rect key="frame" x="0.0" y="257" width="320" height="147"/>
+                                        <rect key="frame" x="0.0" y="321" width="320" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ng9-SX-rRt" id="2Ls-OJ-ebv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
@@ -572,6 +581,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ibW-06-jyN"/>
                     <connections>
                         <outlet property="imageView" destination="HiD-2Q-DYz" id="SRy-bv-h6n"/>
                         <outlet property="tableView" destination="ZGH-gu-ijH" id="F1b-vk-r5u"/>
@@ -580,16 +590,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqH-Pd-nCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="378"/>
+            <point key="canvasLocation" x="-451" y="-459"/>
         </scene>
     </scenes>
     <resources>
         <image name="facebook.png" width="1350" height="1350"/>
-        <image name="facebook.png" width="1350" height="1350"/>
         <image name="home.png" width="1000" height="1000"/>
         <image name="instagram.png" width="256" height="256"/>
-        <image name="instagram.png" width="256" height="256"/>
-        <image name="twitter.png" width="1024" height="1024"/>
         <image name="twitter.png" width="1024" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -598,6 +605,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="a2m-VC-UJM"/>
         <segue reference="PfI-Vr-8KR"/>
+        <segue reference="y2t-db-3kO"/>
+        <segue reference="zi0-Nw-LaO"/>
     </inferredMetricsTieBreakers>
 </document>
