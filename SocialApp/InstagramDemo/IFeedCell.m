@@ -8,7 +8,7 @@
 #import "IFeedCell.h"
 
 @implementation IFeedCell
-@synthesize iPhoto,ownerName,time,likesCount,ownerPhoto,likeButton,commentButton;
+@synthesize iPhoto,ownerName,time,likesCount,ownerPhoto,likeButton;
 
 
 

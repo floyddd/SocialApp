@@ -402,8 +402,7 @@
     
     IFeedItem *tut = [items objectAtIndex:[indexPath row]];
     
-    [cell.commentButton addTarget:self
-                           action:@selector(pushIT:) forControlEvents:UIControlEventTouchUpInside];
+   
     [cell.likeButton addTarget:self
                         action:@selector(sendLike:) forControlEvents:UIControlEventTouchUpInside];
     [cell.likeButton setImage:[UIImage imageNamed:@"hurtred.jpg"] forState:UIControlStateNormal];

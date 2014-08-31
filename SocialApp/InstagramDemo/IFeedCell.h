@@ -14,7 +14,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *likesCount;
 @property (nonatomic,weak) IBOutlet UIImageView *ownerPhoto;
 @property (nonatomic,weak) IBOutlet UIImageView *iPhoto;
-@property (nonatomic,weak) IBOutlet UIButton *commentButton;
+
 @property (nonatomic,weak) IBOutlet UIButton *likeButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLikeOutlet;
