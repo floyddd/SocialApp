@@ -17,6 +17,7 @@
 @property (nonatomic,weak) IBOutlet UIButton *commentButton;
 @property (nonatomic,weak) IBOutlet UIButton *likeButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnLikeOutlet;
 
 
 @end

@@ -18,7 +18,7 @@
 
 @implementation IFeedController{
     UIBarButtonItem *logoutButton ;
-
+    
 }
 @synthesize feedTable,helloView,accessToken,image,items,textPull, textRelease, textLoading, refreshHeaderView, refreshLabel, refreshArrow, refreshSpinner;
 
@@ -28,15 +28,15 @@
 -(void)loadHelloView
 
 {
-
+    
     //CGRect helloFrame = [[UIScreen mainScreen]bounds];
-//    helloView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 499, 499)];
-//
-//    CGRect imageVIew =[[UIScreen mainScreen]bounds];
-//    image = [[UIImageView alloc]initWithFrame:imageVIew];
-//    [image setImage:[UIImage imageNamed:@"insta3.jpg"]];
-//    [[self helloView]addSubview:image];
-
+    //    helloView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 499, 499)];
+    //
+    //    CGRect imageVIew =[[UIScreen mainScreen]bounds];
+    //    image = [[UIImageView alloc]initWithFrame:imageVIew];
+    //    [image setImage:[UIImage imageNamed:@"insta3.jpg"]];
+    //    [[self helloView]addSubview:image];
+    
     CGRect ma = CGRectMake(10, 300, 100, 30);
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     [but setFrame:ma];
@@ -45,7 +45,7 @@
     but.titleLabel.font =[ UIFont fontWithName:@"Arial" size:20];
     but.titleLabel.textColor = [UIColor blackColor];
     [[but layer]setBorderWidth:2];
-
+    
     [but addTarget:self action:@selector(openLoginView:) forControlEvents:UIControlEventTouchUpInside];
     [helloView addSubview:but];
     [[self view]addSubview:helloView];
@@ -58,33 +58,70 @@
     [self performSegueWithIdentifier:@"back" sender:sender];
 }
 // загружаем основное табличное view. если токен = 0, показываем окно приветствия
-
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
 -(void)viewDidLoad
 
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.barTintColor = [self colorWithHexString:@"335466"];
+    
+    
     
     accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:@"access_token"];
     [[NSUserDefaults standardUserDefaults]synchronize];
     if (!accessToken) {
-
+        
         [self openLoginView:self];
-
+        
     }
     else{
         logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
         [[self navigationItem]setRightBarButtonItem:logoutButton];
-
+        logoutButton.tintColor=[UIColor whiteColor];
     }
-
+    
     [UIView commitAnimations];
- 
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     UIBarButtonItem *left = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"reveal-icon.png"] style:UIBarButtonItemStylePlain target:self action:@selector(revealToggle:)];
     
     
     
-    left.tintColor=[UIColor blackColor];
+    left.tintColor=[UIColor whiteColor];
     self.navigationItem.leftBarButtonItem=left;
     
     
@@ -98,34 +135,34 @@
     feedTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 70, tableFrame.size.width, tableFrame.size.height-40) style:UITableViewStylePlain];
     [[self view]addSubview:feedTable];
     [[self feedTable]setDelegate:self];
-  
-// logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
-// [[self navigationItem]setRightBarButtonItem:logoutButton];
+    
+    // logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    // [[self navigationItem]setRightBarButtonItem:logoutButton];
     [[self navigationItem]setTitle:@"Instagram"];
     [feedTable setDataSource:self];
     
-   
+    
     
     [[self view]bringSubviewToFront:helloView];
     [feedTable setRowHeight:440];
     [feedTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-   // [[self navigationController]setNavigationBarHidden:NO];
+    // [[self navigationController]setNavigationBarHidden:NO];
     
-    [self addPullToRefreshHeader];
+    //  [self addPullToRefreshHeader];
     textPull = @"Pull down to refresh..."; //устанавливаем текст для "pull-to-refresh"
     textRelease = @"Release to refresh...";
     textLoading = @"Loading...";
     
     //нет токена - предлагаем автоиризироваться
-        if (!accessToken)
-        {
-            [self loadHelloView];
-        }
-        else
-        {
-            [self askStoreToLoadData]; //иначе наполняем таблицу
-        }
-
+    if (!accessToken)
+    {
+        [self loadHelloView];
+    }
+    else
+    {
+        [self askStoreToLoadData]; //иначе наполняем таблицу
+    }
+    
     
 }
 
@@ -155,7 +192,7 @@
     [refreshHeaderView addSubview:refreshLabel];
     [refreshHeaderView addSubview:refreshArrow];
     [refreshHeaderView addSubview:refreshSpinner];
-    [self.feedTable addSubview:refreshHeaderView];
+    //[self.feedTable addSubview:refreshHeaderView];
 }
 
 
@@ -169,37 +206,37 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 
 {
-    if (isLoading) {
-       
-        if (scrollView.contentOffset.y > 0)
-            self.feedTable.contentInset = UIEdgeInsetsZero;
-        else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT)
-            self.feedTable.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    } else if (isDragging && scrollView.contentOffset.y < 0) {
-     
-        [UIView animateWithDuration:0.25 animations:^{
-            if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
-              
-                refreshLabel.text = self.textRelease;
-                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
-            } else {
-                NSLog(@"abc");
-                refreshLabel.text = self.textPull;
-                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
-            }
-        }];
-    }
+    //    if (isLoading) {
+    //
+    //        if (scrollView.contentOffset.y > 0)
+    //            self.feedTable.contentInset = UIEdgeInsetsZero;
+    //        else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT)
+    //            self.feedTable.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    //    } else if (isDragging && scrollView.contentOffset.y < 0) {
+    //
+    //        [UIView animateWithDuration:0.25 animations:^{
+    //            if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
+    //
+    //                refreshLabel.text = self.textRelease;
+    //                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
+    //            } else {
+    //                NSLog(@"abc");
+    //                refreshLabel.text = self.textPull;
+    //                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
+    //            }
+    //        }];
+    //    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 
 {
-    if (isLoading) return;
-    isDragging = NO;
-    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
-        
-        [self startLoading];
-    }
+    //    if (isLoading) return;
+    //    isDragging = NO;
+    //    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
+    //
+    //        [self startLoading];
+    //    }
 }
 
 - (void)startLoading
@@ -213,7 +250,7 @@
         [refreshSpinner startAnimating];
     }];
     
-   
+    
     [self refresh];
 }
 
@@ -257,21 +294,22 @@
     
     
     logoutButton.title=@"";
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-//                                                    message:@"Logged out."
-//                                                   delegate:self
-//                                          cancelButtonTitle:@"OK"
-//                                          otherButtonTitles:nil];
-//    [alert show];
     
-     [self openLoginView:self];
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+    //                                                    message:@"Logged out."
+    //                                                   delegate:self
+    //                                          cancelButtonTitle:@"OK"
+    //                                          otherButtonTitles:nil];
+    //    [alert show];
+    
+    [self openLoginView:self];
     
     NSURL *url = [[NSURL alloc]initWithString:@"http://instagram.com/accounts/logout/"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
-
+    
     NSURLConnection *con = [[NSURLConnection alloc]initWithRequest:req delegate:self];
     [con start];
-
+    
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"access_token"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"selfUserID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -295,7 +333,7 @@
 {
     [self loadHelloView];
     HideNetworkActivityIndicator();
-   
+    
 }
 
 //отправляем запрос синглтону на загрузку данных
@@ -304,31 +342,31 @@
 
 {
     ShowNetworkActivityIndicator();
-    [[IFeedStore sharedFeedStore] loadUsersFeed:^(NSArray *array, NSError *error) 
-        
-    {
-
-        if(error)
-        {
-            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            
-            [av show];
-            
-            HideNetworkActivityIndicator();
-        }
-        else
-        {
-            //обновляем данные и перезагружаем таблицу
-            
-            
-            items = array;
-            HideNetworkActivityIndicator();
-            [feedTable reloadData];
-            
-            
-        }
-        
-    }];
+    [[IFeedStore sharedFeedStore] loadUsersFeed:^(NSArray *array, NSError *error)
+     
+     {
+         
+         if(error)
+         {
+             UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             
+             [av show];
+             
+             HideNetworkActivityIndicator();
+         }
+         else
+         {
+             //обновляем данные и перезагружаем таблицу
+             
+             
+             items = array;
+             HideNetworkActivityIndicator();
+             [feedTable reloadData];
+             
+             
+         }
+         
+     }];
     
 }
 
@@ -341,7 +379,7 @@
     ShowNetworkActivityIndicator();
     IAuthentificator *iAuth = [[IAuthentificator alloc]init];
     [iAuth setIDelegate:self];
-   
+    
     [self presentViewController:iAuth animated:YES completion:^{}];
     
 }
@@ -353,14 +391,14 @@
     
     IFeedCell *cell = (IFeedCell*)[tableView dequeueReusableCellWithIdentifier:@"IFeedCell"];
     
-        if(!cell)
-            
-        {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"IFeedCell"owner:self options:nil];
-            cell = [nib objectAtIndex:0];
-            
-            
-        }
+    if(!cell)
+        
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"IFeedCell"owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+        
+        
+    }
     
     IFeedItem *tut = [items objectAtIndex:[indexPath row]];
     
@@ -368,7 +406,7 @@
                            action:@selector(pushIT:) forControlEvents:UIControlEventTouchUpInside];
     [cell.likeButton addTarget:self
                         action:@selector(sendLike:) forControlEvents:UIControlEventTouchUpInside];
-    
+    [cell.likeButton setImage:[UIImage imageNamed:@"hurtred.jpg"] forState:UIControlStateNormal];
     [[cell ownerName]setText:tut.imageOwnerNickname];
     [[cell time]setText:[NSString stringWithFormat:@"%@",tut.timeFromRelease]];
     [[cell likesCount]setText:[NSString stringWithFormat:@"%i likes",tut.likeCount]];
@@ -380,14 +418,15 @@
     
     if(tut.likeStatus)
     {
+        cell.btnLikeOutlet.titleLabel.text=@"  Liked";
         cell.likeButton.imageView.image = [UIImage imageNamed:@"hurtred.jpg"];
     }
     else
     {
         cell.likeButton.imageView.image = [UIImage imageNamed:@"hurt2.jpg"];
-
+        
     }
-
+    
     return cell;
 }
 
@@ -396,7 +435,7 @@
 -(void)pushIT:(id)sender
 
 {
- 
+    
     UIAlertView *pushAlert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Work in progress" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [pushAlert show];
 }
@@ -408,20 +447,21 @@
 
 {
     //получаем номер ячейки, из которой нажата кнопка
-
+    
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.feedTable];
     NSIndexPath *indexPath = [self.feedTable indexPathForRowAtPoint:buttonPosition];
-
+    
     BOOL likes;
     IFeedItem *item = [items objectAtIndex:[indexPath row]];
     NSInteger likesCount = [item likeCount];
     UIImage *selectedImage = [UIImage imageNamed:@"hurtred.jpg"];
     UIImage *unselectedImage = [UIImage imageNamed:@"hurt2.jpg"];
-   
+    
     // в зависимости от статуса лайка меняем цвет кнопки и запрос (POST/DELETE)
-  
+    
     if(item.likeStatus)
     {
+        
         [sender setImage:unselectedImage forState:UIControlStateNormal];
         [sender setSelected:NO];
         [[items objectAtIndex:[indexPath row]]setLikeCount:likesCount-1];
@@ -440,23 +480,23 @@
         likes = 0;
         ShowNetworkActivityIndicator();
     }
-  
+    
     //отправляем запрос
-
+    
     [[IFeedStore sharedFeedStore]SendLikeOrUnlikeWithString:[NSString stringWithFormat:@"%@",item.postID] andLikeStatus:likes andBlock:^(NSError *error){
         
-       if(error)
-       {
-           UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-           [av show];
-           HideNetworkActivityIndicator();
-       }
+        if(error)
+        {
+            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [av show];
+            HideNetworkActivityIndicator();
+        }
         else
         {
             HideNetworkActivityIndicator();
         }
     }];
-
+    
 }
 
 
@@ -485,12 +525,13 @@
 -(void)didAuth:(NSMutableString *)token
 {
     logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    logoutButton.tintColor=[UIColor whiteColor];
     [[self navigationItem]setRightBarButtonItem:logoutButton];
     HideNetworkActivityIndicator();
     image = nil;
     [helloView removeFromSuperview];
     helloView = nil;
-   // [[self navigationController]setNavigationBarHidden:NO];
+    // [[self navigationController]setNavigationBarHidden:NO];
     [self askStoreToLoadData];
     [self dismissViewControllerAnimated:YES completion:^{}];
     

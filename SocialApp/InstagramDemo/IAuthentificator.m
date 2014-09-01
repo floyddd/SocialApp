@@ -26,6 +26,7 @@
     [webView setScalesPageToFit:YES];
     [webView setDelegate:self];
     [self setView:webView];
+
     //UINavigationBar *headerView = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     
     //The UINavigationItem is neede as a "box" that holds the Buttons or other elements
@@ -38,8 +39,8 @@
     //Putting the Buttons on the Carrier
     barDoneButton.backgroundColor=[UIColor lightGrayColor];
     [barDoneButton setTitle:@"Cancel" forState:UIControlStateNormal];
-    
-    [self.view addSubview:barDoneButton];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+  //  [self.view addSubview:barDoneButton];
   //  [buttonCarrier setRightBarButtonItem:barDoneButton];
     
     //The NavigationBar accepts those "Carrier" (UINavigationItem) inside an Array
@@ -70,6 +71,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 
 {
+    webView.frame=CGRectMake(0, 20, 320, 500);
     NSString *currentUrl = [[request URL]absoluteString];
     NSString *prefix = [NSString stringWithFormat:@"%@/?code=",callbackURL];
     
@@ -102,6 +104,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
     HideNetworkActivityIndicator();
 }
 
