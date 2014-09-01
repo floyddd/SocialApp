@@ -46,10 +46,6 @@
 @property (nonatomic, copy) NSString *textRelease;
 @property (nonatomic, copy) NSString *textLoading;
 
--(void)askStoreToLoadData;
-- (void)addPullToRefreshHeader;
-- (void)startLoading;
-- (void)stopLoading;
-- (void)refresh;
+
 
 @end

@@ -148,10 +148,7 @@
     [feedTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // [[self navigationController]setNavigationBarHidden:NO];
     
-    //  [self addPullToRefreshHeader];
-    textPull = @"Pull down to refresh..."; //устанавливаем текст для "pull-to-refresh"
-    textRelease = @"Release to refresh...";
-    textLoading = @"Loading...";
+  
     
     //нет токена - предлагаем автоиризироваться
     if (!accessToken)
@@ -168,119 +165,6 @@
 
 //создаем "pull-to-refresh" и описываем его логику
 
-- (void)addPullToRefreshHeader
-
-{
-    refreshHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, 320, REFRESH_HEADER_HEIGHT)];
-    refreshHeaderView.backgroundColor = [UIColor clearColor];
-    
-    refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, REFRESH_HEADER_HEIGHT)];
-    refreshLabel.backgroundColor = [UIColor clearColor];
-    refreshLabel.font = [UIFont systemFontOfSize:15];
-    refreshLabel.textColor = [UIColor darkGrayColor];
-    refreshLabel.textAlignment = NSTextAlignmentCenter;
-    
-    refreshArrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grayArrow2.png"]];
-    refreshArrow.frame = CGRectMake(floorf((REFRESH_HEADER_HEIGHT - 27) / 2),
-                                    (floorf(REFRESH_HEADER_HEIGHT - 44) / 2),
-                                    27, 44);
-    
-    refreshSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    refreshSpinner.frame = CGRectMake(floorf(floorf(REFRESH_HEADER_HEIGHT - 20) / 2), floorf((REFRESH_HEADER_HEIGHT - 20) / 2), 20, 20);
-    refreshSpinner.hidesWhenStopped = YES;
-    
-    [refreshHeaderView addSubview:refreshLabel];
-    [refreshHeaderView addSubview:refreshArrow];
-    [refreshHeaderView addSubview:refreshSpinner];
-    //[self.feedTable addSubview:refreshHeaderView];
-}
-
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-
-{
-    if (isLoading) return;
-    isDragging = YES;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-
-{
-    //    if (isLoading) {
-    //
-    //        if (scrollView.contentOffset.y > 0)
-    //            self.feedTable.contentInset = UIEdgeInsetsZero;
-    //        else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT)
-    //            self.feedTable.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    //    } else if (isDragging && scrollView.contentOffset.y < 0) {
-    //
-    //        [UIView animateWithDuration:0.25 animations:^{
-    //            if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
-    //
-    //                refreshLabel.text = self.textRelease;
-    //                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI, 0, 0, 1);
-    //            } else {
-    //                NSLog(@"abc");
-    //                refreshLabel.text = self.textPull;
-    //                [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
-    //            }
-    //        }];
-    //    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-
-{
-    //    if (isLoading) return;
-    //    isDragging = NO;
-    //    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
-    //
-    //        [self startLoading];
-    //    }
-}
-
-- (void)startLoading
-
-{
-    isLoading = YES;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.feedTable.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0, 0, 0);
-        refreshLabel.text = self.textLoading;
-        refreshArrow.hidden = YES;
-        [refreshSpinner startAnimating];
-    }];
-    
-    
-    [self refresh];
-}
-
-- (void)stopLoading
-
-{
-    isLoading = NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.feedTable.contentInset = UIEdgeInsetsZero;
-        [refreshArrow layer].transform = CATransform3DMakeRotation(M_PI * 2, 0, 0, 1);
-    }
-                     completion:^(BOOL finished) {
-                         [self performSelector:@selector(stopLoadingComplete)];
-                     }];
-}
-
-- (void)stopLoadingComplete
-
-{
-    refreshLabel.text = self.textPull;
-    refreshArrow.hidden = NO;
-    [refreshSpinner stopAnimating];
-}
-
-- (void)refresh
-
-{
-    [self askStoreToLoadData];
-    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1.5];
-}
 
 
 //выходим. отправляем пользователя разлогиниться и удаляем токен
@@ -402,11 +286,7 @@
     
     IFeedItem *tut = [items objectAtIndex:[indexPath row]];
     
-    [cell.commentButton addTarget:self
-                           action:@selector(pushIT:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.likeButton addTarget:self
-                        action:@selector(sendLike:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.likeButton setImage:[UIImage imageNamed:@"hurtred.jpg"] forState:UIControlStateNormal];
+
     [[cell ownerName]setText:tut.imageOwnerNickname];
     [[cell time]setText:[NSString stringWithFormat:@"%@",tut.timeFromRelease]];
     [[cell likesCount]setText:[NSString stringWithFormat:@"%i likes",tut.likeCount]];
@@ -416,88 +296,16 @@
     
     //в зависимости от статуса лайка обновляем изображение на кнопке
     
-    if(tut.likeStatus)
-    {
-        cell.btnLikeOutlet.titleLabel.text=@"  Liked";
-        cell.likeButton.imageView.image = [UIImage imageNamed:@"hurtred.jpg"];
-    }
-    else
-    {
-        cell.likeButton.imageView.image = [UIImage imageNamed:@"hurt2.jpg"];
-        
-    }
+ 
     
     return cell;
 }
 
 //открываем комментарии (work in progress)
 
--(void)pushIT:(id)sender
-
-{
-    
-    UIAlertView *pushAlert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"Work in progress" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [pushAlert show];
-}
-
 
 //отправляем лайк или удаляем его
 
--(void)sendLike:(id)sender
-
-{
-    //получаем номер ячейки, из которой нажата кнопка
-    
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.feedTable];
-    NSIndexPath *indexPath = [self.feedTable indexPathForRowAtPoint:buttonPosition];
-    
-    BOOL likes;
-    IFeedItem *item = [items objectAtIndex:[indexPath row]];
-    NSInteger likesCount = [item likeCount];
-    UIImage *selectedImage = [UIImage imageNamed:@"hurtred.jpg"];
-    UIImage *unselectedImage = [UIImage imageNamed:@"hurt2.jpg"];
-    
-    // в зависимости от статуса лайка меняем цвет кнопки и запрос (POST/DELETE)
-    
-    if(item.likeStatus)
-    {
-        
-        [sender setImage:unselectedImage forState:UIControlStateNormal];
-        [sender setSelected:NO];
-        [[items objectAtIndex:[indexPath row]]setLikeCount:likesCount-1];
-        [[items objectAtIndex:[indexPath row]]setLikeStatus:NO];
-        [feedTable reloadData];
-        likes = 1;
-        ShowNetworkActivityIndicator();
-    }
-    else
-    {
-        [sender setImage:selectedImage forState:UIControlStateSelected];
-        [sender setSelected:YES];
-        [[items objectAtIndex:[indexPath row]]setLikeCount:likesCount+1];
-        [[items objectAtIndex:[indexPath row]]setLikeStatus:YES];
-        [feedTable reloadData];
-        likes = 0;
-        ShowNetworkActivityIndicator();
-    }
-    
-    //отправляем запрос
-    
-    [[IFeedStore sharedFeedStore]SendLikeOrUnlikeWithString:[NSString stringWithFormat:@"%@",item.postID] andLikeStatus:likes andBlock:^(NSError *error){
-        
-        if(error)
-        {
-            UIAlertView *av = [[UIAlertView alloc]initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [av show];
-            HideNetworkActivityIndicator();
-        }
-        else
-        {
-            HideNetworkActivityIndicator();
-        }
-    }];
-    
-}
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -513,12 +321,6 @@
     return [items count];
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-
-{
-    
-    
-}
 
 //проверка авторизации, успех = убираем окно авторизации и перезагружаем таблицу
 
