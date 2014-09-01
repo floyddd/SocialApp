@@ -34,13 +34,13 @@
     
     //Creating some buttons:
    
-    UIButton *barDoneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 420, 320, 60)];
+    UIButton *barDoneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 400, 320, 60)];
     [barDoneButton addTarget:self action:@selector(signInDonePressed) forControlEvents:UIControlEventTouchUpInside];
     //Putting the Buttons on the Carrier
     barDoneButton.backgroundColor=[UIColor lightGrayColor];
     [barDoneButton setTitle:@"Cancel" forState:UIControlStateNormal];
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-  //  [self.view addSubview:barDoneButton];
+    [self.view addSubview:barDoneButton];
   //  [buttonCarrier setRightBarButtonItem:barDoneButton];
     
     //The NavigationBar accepts those "Carrier" (UINavigationItem) inside an Array
@@ -63,7 +63,7 @@
     mdata = [NSMutableData data];
 }
 -(void)signInDonePressed{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 //загружаем окно авторизации, заходим под своим логином

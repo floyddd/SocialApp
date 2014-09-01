@@ -18,42 +18,14 @@
 
 @implementation IFeedController{
     UIBarButtonItem *logoutButton ;
-    
+    UIButton *barDoneButton;
 }
 @synthesize feedTable,helloView,accessToken,image,items,textPull, textRelease, textLoading, refreshHeaderView, refreshLabel, refreshArrow, refreshSpinner;
 
 
 //загружаем приветствующее view, если токен = 0
 
--(void)loadHelloView
 
-{
-    
-    //CGRect helloFrame = [[UIScreen mainScreen]bounds];
-    //    helloView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 499, 499)];
-    //
-    //    CGRect imageVIew =[[UIScreen mainScreen]bounds];
-    //    image = [[UIImageView alloc]initWithFrame:imageVIew];
-    //    [image setImage:[UIImage imageNamed:@"insta3.jpg"]];
-    //    [[self helloView]addSubview:image];
-    
-    CGRect ma = CGRectMake(10, 300, 100, 30);
-    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-    [but setFrame:ma];
-    [but setTitle:@"Login" forState:UIControlStateNormal];
-    [but setBackgroundColor:[UIColor whiteColor]];
-    but.titleLabel.font =[ UIFont fontWithName:@"Arial" size:20];
-    but.titleLabel.textColor = [UIColor blackColor];
-    [[but layer]setBorderWidth:2];
-    
-    [but addTarget:self action:@selector(openLoginView:) forControlEvents:UIControlEventTouchUpInside];
-    [helloView addSubview:but];
-    [[self view]addSubview:helloView];
-    
-    
-    
-    
-}
 -(void)aMethod:(id)sender {
     [self performSegueWithIdentifier:@"back" sender:sender];
 }
@@ -108,8 +80,10 @@
         
         [self openLoginView:self];
         
+        
     }
     else{
+
         logoutButton= [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
         [[self navigationItem]setRightBarButtonItem:logoutButton];
         logoutButton.tintColor=[UIColor whiteColor];
@@ -143,7 +117,7 @@
     
     
     
-    [[self view]bringSubviewToFront:helloView];
+
     [feedTable setRowHeight:440];
     [feedTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // [[self navigationController]setNavigationBarHidden:NO];
@@ -153,23 +127,26 @@
     //нет токена - предлагаем автоиризироваться
     if (!accessToken)
     {
-        [self loadHelloView];
+       
     }
     else
     {
+       
         [self askStoreToLoadData]; //иначе наполняем таблицу
     }
     
     
 }
-
+-(void)signInDonePressed{
+    [self openLoginView:self];
+}
 //создаем "pull-to-refresh" и описываем его логику
 
 
 
 //выходим. отправляем пользователя разлогиниться и удаляем токен
 
--(void)logout:(id)sender
+-(void)logout:(id)sender\
 
 {
     
@@ -205,7 +182,7 @@
 {
     feedTable = nil;
     image = nil;
-    helloView = nil;
+    
     refreshSpinner = nil;
     refreshArrow = nil;
     refreshHeaderView = nil;
@@ -215,7 +192,7 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    [self loadHelloView];
+
     HideNetworkActivityIndicator();
     
 }
@@ -264,7 +241,7 @@
     IAuthentificator *iAuth = [[IAuthentificator alloc]init];
     [iAuth setIDelegate:self];
     
-    [self presentViewController:iAuth animated:YES completion:^{}];
+    [self presentViewController:iAuth animated:NO completion:^{}];
     
 }
 
@@ -331,7 +308,7 @@
     [[self navigationItem]setRightBarButtonItem:logoutButton];
     HideNetworkActivityIndicator();
     image = nil;
-    [helloView removeFromSuperview];
+ 
     helloView = nil;
     // [[self navigationController]setNavigationBarHidden:NO];
     [self askStoreToLoadData];
